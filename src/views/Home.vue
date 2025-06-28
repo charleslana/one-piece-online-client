@@ -1,29 +1,31 @@
 <template>
-  <HeaderComponent />
-  <section class="home-bg"></section>
-  <div class="has-text-centered">
-    <button class="button is-uppercase register-button" @click="openRegisterModal">
-      Cadastre-se
-    </button>
-  </div>
-  <!-- <div>
-    <h1>Home</h1>
-    <p>Count: {{ counter.count }}</p>
-    <button @click="counter.increment()" class="button">Incrementar</button>
-  </div> -->
-  <div class="container space">
-    <nav class="level is-uppercase">
-      <div class="level-left gtamerica last-news is-size-2 has-text-centered">Ultimas Noticias</div>
-      <div class="level-right phagspa">
-        <RouterLink to="/" class="link has-text-centered">Ver todas as notícias</RouterLink>
+  <div class="page-container">
+    <main class="page-content">
+      <HeaderComponent />
+      <section class="home-bg"></section>
+      <div class="has-text-centered">
+        <button class="button is-uppercase register-button" @click="openRegisterModal">
+          Cadastre-se
+        </button>
       </div>
-    </nav>
+      <!-- <div>
+        <h1>Home</h1>
+        <p>Count: {{ counter.count }}</p>
+        <button @click="counter.increment()" class="button">Incrementar</button>
+      </div> -->
+      <div class="container space">
+        <HomeNewsComponent />
+      </div>
+    </main>
+    <FooterComponent />
   </div>
   <ModalRegisterComponent :active="showRegisterModal" @close="closeRegisterModal" />
 </template>
 
 <script setup lang="ts">
+import FooterComponent from '@/components/FooterComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
+import HomeNewsComponent from '@/components/HomeNewsComponent.vue';
 import ModalRegisterComponent from '@/components/ModalRegisterComponent.vue';
 import { ref } from 'vue';
 // import { useCounterStore } from '@/store/counter';

@@ -14,7 +14,7 @@
     </a>
     <ul v-if="mobileMenuVisible" class="panel-mobile">
       <router-link to="/"><li class="has-text-white py-2">Home</li></router-link>
-      <router-link to="/about"><li class="has-text-white py-2">Notícias</li></router-link>
+      <router-link to="/news"><li class="has-text-white py-2">Notícias</li></router-link>
       <router-link to="/error"><li class="has-text-white py-2">Hall da Fama</li></router-link>
       <router-link to="/error"><li class="has-text-white py-2">Contato</li></router-link>
     </ul>
@@ -24,7 +24,7 @@
       <router-link to="/">
         <li>Home</li>
       </router-link>
-      <router-link to="/about">
+      <router-link to="/news">
         <li>Notícias</li>
       </router-link>
       <router-link to="/error">
@@ -48,21 +48,21 @@
     >
       <div class="is-size-5 is-uppercase has-text-weight-bold has-text-white">Social</div>
       <div class="is-flex">
-        <router-link to="/" class="ml-5">
+        <a href="#" target="_blank" class="ml-5">
           <img src="../assets/images/social/twitter.png" alt="social icon" />
-        </router-link>
-        <router-link to="/" class="ml-3">
+        </a>
+        <a href="#" target="_blank" class="ml-3">
           <img src="../assets/images/social/facebook.png" alt="social icon" />
-        </router-link>
-        <router-link to="/" class="ml-3">
+        </a>
+        <a href="#" target="_blank" class="ml-3">
           <img src="../assets/images/social/youtube.png" alt="social icon" />
-        </router-link>
-        <router-link to="/" class="ml-3">
+        </a>
+        <a href="#" target="_blank" class="ml-3">
           <img src="../assets/images/social/whatsapp.png" alt="social icon" />
-        </router-link>
-        <router-link to="/" class="ml-3">
+        </a>
+        <a href="#" target="_blank" class="ml-3">
           <img src="../assets/images/social/discord.png" alt="social icon" />
-        </router-link>
+        </a>
       </div>
     </div>
     <div class="language is-flex is-align-items-center is-hidden-touch">
