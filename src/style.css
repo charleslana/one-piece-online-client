@@ -21,3 +21,11 @@ body {
 .gtamerica {
   font-family: GT-America !important;
 }
+
+.link {
+  color: #0056b3;
+}
+
+.link:hover {
+  text-decoration: underline;
+}

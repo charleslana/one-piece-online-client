@@ -2,7 +2,9 @@
   <HeaderComponent />
   <section class="home-bg"></section>
   <div class="has-text-centered">
-    <button class="button is-uppercase register-button">Cadastre-se</button>
+    <button class="button is-uppercase register-button" @click="openRegisterModal">
+      Cadastre-se
+    </button>
   </div>
   <!-- <div>
     <h1>Home</h1>
@@ -13,17 +15,29 @@
     <nav class="level is-uppercase">
       <div class="level-left gtamerica last-news is-size-2">Ultimas Noticias</div>
       <div class="level-right phagspa">
-        <RouterLink to="/" class="link-news">Ver todas as notícias</RouterLink>
+        <RouterLink to="/" class="link">Ver todas as notícias</RouterLink>
       </div>
     </nav>
   </div>
+  <ModalRegisterComponent :active="showModal" @close="closeRegisterModal" />
 </template>
 
 <script setup lang="ts">
 import HeaderComponent from '@/components/HeaderComponent.vue';
-import { useCounterStore } from '@/store/counter';
+import ModalRegisterComponent from '@/components/ModalRegisterComponent.vue';
+import { ref } from 'vue';
+// import { useCounterStore } from '@/store/counter';
 
-const counter = useCounterStore();
+// const counter = useCounterStore();
+const showModal = ref(false);
+
+function openRegisterModal() {
+  showModal.value = true;
+}
+
+function closeRegisterModal() {
+  showModal.value = false;
+}
 </script>
 
 <style scoped>
@@ -61,6 +75,7 @@ const counter = useCounterStore();
   margin-top: -2.8rem;
   border-color: transparent;
   transition-property: box-shadow, transform;
+  color: #fff;
 }
 
 .register-button:hover {
@@ -74,13 +89,5 @@ const counter = useCounterStore();
 
 .space {
   margin-top: 5rem;
-}
-
-.link-news {
-  color: #0056b3;
-}
-
-.link-news:hover {
-  text-decoration: underline;
 }
 </style>
