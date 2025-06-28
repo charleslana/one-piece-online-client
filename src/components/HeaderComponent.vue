@@ -15,12 +15,51 @@
         <li>Contato</li>
       </router-link>
     </ul>
-    <button class="button is-warning is-medium is-responsive is-uppercase button-phagspa">
+    <button class="button is-warning is-responsive is-uppercase is-shadowless is-orange">
       <span class="icon is-small">
         <font-awesome-icon :icon="['fa', 'user']" />
       </span>
       <span>Login</span>
     </button>
+    <div
+      class="is-flex is-align-items-center is-hidden-mobile is-hidden-tablet-only is-hidden-desktop-only"
+    >
+      <div class="is-size-5 is-uppercase has-text-weight-bold has-text-white">Social</div>
+      <div class="is-flex">
+        <router-link to="/" class="ml-5">
+          <img src="../assets/images/social/twitter.png" alt="social icon" />
+        </router-link>
+        <router-link to="/" class="ml-3">
+          <img src="../assets/images/social/facebook.png" alt="social icon" />
+        </router-link>
+        <router-link to="/" class="ml-3">
+          <img src="../assets/images/social/youtube.png" alt="social icon" />
+        </router-link>
+        <router-link to="/" class="ml-3">
+          <img src="../assets/images/social/whatsapp.png" alt="social icon" />
+        </router-link>
+        <router-link to="/" class="ml-3">
+          <img src="../assets/images/social/discord.png" alt="social icon" />
+        </router-link>
+      </div>
+    </div>
+    <div class="language is-flex is-align-items-center">
+      <img
+        src="../assets/images/social/brazil.svg"
+        alt="social icon"
+        width="45"
+        height="45"
+        class="is-clickable"
+      />
+      <img
+        src="../assets/images/social/usa.svg"
+        alt="social icon"
+        width="45"
+        height="45"
+        class="is-clickable ml-4"
+        style="opacity: 0.3"
+      />
+    </div>
   </header>
 </template>
 
@@ -96,5 +135,23 @@
 
 .menu li:hover:before {
   right: 0;
+}
+
+.language {
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 1rem;
+}
+
+.is-orange {
+  background: #fc8834;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 0.5rem;
+  font-family: Phagspa !important;
+  padding: 1rem 2rem;
+}
+
+.is-orange:hover {
+  filter: brightness(90%);
 }
 </style>

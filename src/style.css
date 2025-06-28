@@ -9,6 +9,15 @@ body {
   src: url(./assets/fonts/phagspa.ttf);
 }
 
-.button-phagspa {
+@font-face {
+  font-family: GT-America;
+  src: url(./assets/fonts/GTAmericaBold.ttf);
+}
+
+.phagspa {
   font-family: Phagspa !important;
+}
+
+.gtamerica {
+  font-family: GT-America !important;
 }
