@@ -48,6 +48,7 @@ function closeRegisterModal() {
   background-repeat: no-repeat;
   background-size: cover;
   background-position-y: center;
+  background-position-x: center;
 }
 
 .register-button {
