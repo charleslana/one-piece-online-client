@@ -1,11 +1,11 @@
 <template>
   <div class="modal modal-fx-slideTop" :class="{ 'is-active': active }">
     <div class="modal-background" @click="closeModal"></div>
-    <div class="modal-content">
-      <div class="icon-bg is-flex is-justify-content-center is-align-items-center m-auto">
-        <font-awesome-icon :icon="['fa', 'skull-crossbones']" size="3x" color="white" />
-      </div>
-      <div class="is-size-2 has-text-centered">Inicie sua Aventura</div>
+    <div class="icon-bg is-flex is-justify-content-center is-align-items-center">
+      <font-awesome-icon :icon="['fa', 'skull-crossbones']" size="3x" color="white" />
+    </div>
+    <div class="modal-content is-tiny">
+      <div class="is-size-3 has-text-centered m-5 pt-5">Inicie sua Aventura</div>
       <form @submit.prevent="handleSubmit">
         <div class="field">
           <label class="label">E-mail</label>
@@ -223,6 +223,6 @@ async function handleSubmit() {
   background: #007bff;
   padding: 15px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
-  /* transform: translateY(-4.2rem); */
+  transform: translateY(2.7rem);
 }
 </style>

@@ -13,13 +13,13 @@
   </div> -->
   <div class="container space">
     <nav class="level is-uppercase">
-      <div class="level-left gtamerica last-news is-size-2">Ultimas Noticias</div>
+      <div class="level-left gtamerica last-news is-size-2 has-text-centered">Ultimas Noticias</div>
       <div class="level-right phagspa">
-        <RouterLink to="/" class="link">Ver todas as notícias</RouterLink>
+        <RouterLink to="/" class="link has-text-centered">Ver todas as notícias</RouterLink>
       </div>
     </nav>
   </div>
-  <ModalRegisterComponent :active="showModal" @close="closeRegisterModal" />
+  <ModalRegisterComponent :active="showRegisterModal" @close="closeRegisterModal" />
 </template>
 
 <script setup lang="ts">
@@ -29,21 +29,21 @@ import { ref } from 'vue';
 // import { useCounterStore } from '@/store/counter';
 
 // const counter = useCounterStore();
-const showModal = ref(false);
+const showRegisterModal = ref(false);
 
 function openRegisterModal() {
-  showModal.value = true;
+  showRegisterModal.value = true;
 }
 
 function closeRegisterModal() {
-  showModal.value = false;
+  showRegisterModal.value = false;
 }
 </script>
 
 <style scoped>
 .home-bg {
   border-bottom: 0.7rem solid #184d86;
-  height: 95vh;
+  height: 95dvh;
   background-image: url(../assets/images/home/background.png);
   background-repeat: no-repeat;
   background-size: cover;
