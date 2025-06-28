@@ -70,7 +70,7 @@
   background: rgb(0, 23, 71, 0.8);
   height: 5.5rem;
   position: fixed;
-  z-index: 1035;
+  z-index: 2;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -107,6 +107,7 @@
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
   overflow: hidden;
+  text-align: center;
 }
 
 .menu a:last-child li {

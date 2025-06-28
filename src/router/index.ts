@@ -14,6 +14,12 @@ const routes: Array<RouteRecordRaw> = [
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(_to, _from, _savedPosition) {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    return { top: 0 };
+  },
 });
 
 export default router;

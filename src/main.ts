@@ -6,12 +6,13 @@ import router from './router';
 
 import 'bulma/css/bulma.css';
 import 'rpg-awesome/css/rpg-awesome.min.css';
+import 'bulma-modal-fx/dist/css/modal-fx.min.css';
 
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faUser);
+library.add(faUser, faSkullCrossbones);
 
 const app = createApp(App);
 
