@@ -5,5 +5,20 @@ import pinia from './store';
 import router from './router';
 
 import 'bulma/css/bulma.css';
+import 'rpg-awesome/css/rpg-awesome.min.css';
 
-createApp(App).use(pinia).use(router).mount('#app');
+import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+
+library.add(faUser);
+
+const app = createApp(App);
+
+app.use(pinia);
+
+app.use(router);
+
+app.component('font-awesome-icon', FontAwesomeIcon);
+
+app.mount('#app');
