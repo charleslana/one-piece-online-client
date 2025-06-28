@@ -1,0 +1,14 @@
+body {
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+}
+
+@font-face {
+  font-family: Phagspa;
+  src: url(./assets/fonts/phagspa.ttf);
+}
+
+.button-phagspa {
+  font-family: Phagspa !important;
+}
