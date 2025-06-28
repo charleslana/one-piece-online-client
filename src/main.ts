@@ -7,6 +7,8 @@ import router from './router';
 import 'bulma/css/bulma.css';
 import 'rpg-awesome/css/rpg-awesome.min.css';
 import 'bulma-modal-fx/dist/css/modal-fx.min.css';
+import 'animate.css';
+import 'sweetalert2/src/sweetalert2.scss';
 
 import { faUser, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';

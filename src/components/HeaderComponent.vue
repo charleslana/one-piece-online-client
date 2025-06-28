@@ -1,7 +1,26 @@
 <template>
   <header class="header">
-    <div class="logo"></div>
-    <ul class="menu">
+    <a
+      role="button"
+      class="navbar-burger is-hidden-desktop"
+      aria-label="menu"
+      aria-expanded="false"
+      @click="toggleMobileMenu"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+    <ul v-if="mobileMenuVisible" class="panel-mobile">
+      <router-link to="/"><li class="has-text-white py-2">Home</li></router-link>
+      <router-link to="/about"><li class="has-text-white py-2">Notícias</li></router-link>
+      <router-link to="/error"><li class="has-text-white py-2">Hall da Fama</li></router-link>
+      <router-link to="/error"><li class="has-text-white py-2">Contato</li></router-link>
+    </ul>
+    <div class="logo is-hidden-touch"></div>
+    <div class="mini-logo is-hidden-tablet"></div>
+    <ul class="menu is-hidden-touch">
       <router-link to="/">
         <li>Home</li>
       </router-link>
@@ -15,7 +34,10 @@
         <li>Contato</li>
       </router-link>
     </ul>
-    <button class="button is-warning is-responsive is-uppercase is-shadowless is-orange">
+    <button
+      class="button is-warning is-responsive is-uppercase is-shadowless is-orange"
+      @click="openLoginModal"
+    >
       <span class="icon is-small">
         <font-awesome-icon :icon="['fa', 'user']" />
       </span>
@@ -43,7 +65,7 @@
         </router-link>
       </div>
     </div>
-    <div class="language is-flex is-align-items-center">
+    <div class="language is-flex is-align-items-center is-hidden-touch">
       <img
         src="../assets/images/social/brazil.svg"
         alt="social icon"
@@ -61,11 +83,43 @@
       />
     </div>
   </header>
+  <ModalLoginComponent :active="showLoginModal" @close="closeLoginModal" />
 </template>
 
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import { ref } from 'vue';
+import ModalLoginComponent from './ModalLoginComponent.vue';
+
+const showLoginModal = ref(false);
+const mobileMenuVisible = ref(false);
+
+function toggleMobileMenu() {
+  mobileMenuVisible.value = !mobileMenuVisible.value;
+}
+
+function openLoginModal() {
+  showLoginModal.value = true;
+}
+
+function closeLoginModal() {
+  showLoginModal.value = false;
+}
+</script>
 
 <style scoped>
+.navbar-burger {
+  background: #fc8834;
+  color: #fff;
+  width: 3rem;
+  height: 3rem;
+  margin-inline-start: 0;
+}
+
+.navbar-burger:hover {
+  background: #fc8834;
+  color: #fff;
+}
+
 .header {
   background: rgb(0, 23, 71, 0.8);
   height: 5.5rem;
@@ -76,6 +130,7 @@
   justify-content: space-evenly;
   max-width: 100%;
   width: 100%;
+  padding: 15px;
 }
 
 .logo {
@@ -84,7 +139,16 @@
   height: auto;
   width: 223px;
   height: 116px;
-  background: url('../assets/images/logo.png');
+  background: url('../assets/images/logo.png') no-repeat;
+  background-size: contain;
+}
+
+.mini-logo {
+  max-width: 20rem;
+  height: auto;
+  width: 55px;
+  height: 50px;
+  background: url('../assets/images/mini-logo.png') no-repeat;
   background-size: contain;
 }
 
@@ -92,6 +156,7 @@
   display: flex;
   transition: all 0.3s linear;
   position: relative;
+  align-items: center;
 }
 
 .menu li {
@@ -154,5 +219,45 @@
 
 .is-orange:hover {
   filter: brightness(90%);
+}
+
+.panel-mobile {
+  transform: translate(0, 4rem);
+  opacity: 0.9;
+  top: 2rem;
+  left: 2.2rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  position: absolute;
+  width: 12rem;
+  height: auto;
+  background: #fc8834;
+  transition: all 0.3s;
+  border-radius: 5px;
+}
+
+.panel-mobile a {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.panel-mobile li {
+  width: 100%;
+  padding: 1rem;
+  border-bottom: 1px solid #cf6f1d;
+  font-family: Phagspa !important;
+  font-weight: 700;
+  height: 4rem;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.panel-mobile a:last-child li {
+  border-bottom: 0px;
 }
 </style>

@@ -5,7 +5,7 @@
       <font-awesome-icon :icon="['fa', 'skull-crossbones']" size="3x" color="white" />
     </div>
     <div class="modal-content is-tiny">
-      <div class="is-size-3 has-text-centered m-5 pt-5">Inicie sua Aventura</div>
+      <div class="is-size-3 has-text-centered m-5 pt-5">Acessar minha conta</div>
       <form @submit.prevent="handleSubmit">
         <div class="field">
           <label class="label">E-mail</label>
@@ -23,65 +23,14 @@
           </div>
         </div>
         <div class="field">
-          <label class="label">Confirmar e-mail</label>
-          <div class="control">
-            <input
-              class="input is-shadowless"
-              :class="{ 'is-danger': emailError }"
-              type="text"
-              placeholder=""
-              v-model.trim="confirmEmail"
-            />
-          </div>
-          <div v-if="emailError" class="field">
-            <p class="help is-danger">{{ emailError }}</p>
-          </div>
-        </div>
-        <div class="field">
           <label class="label">Senha</label>
           <div class="control">
             <input
               class="input is-shadowless"
-              :class="{ 'is-danger': passwordError }"
               type="password"
               placeholder=""
               v-model.trim="password"
             />
-          </div>
-          <div v-if="passwordError" class="field">
-            <p class="help is-danger">{{ passwordError }}</p>
-          </div>
-        </div>
-        <div class="field">
-          <label class="label">Confirmar senha</label>
-          <div class="control">
-            <input
-              class="input is-shadowless"
-              :class="{ 'is-danger': passwordError }"
-              type="password"
-              placeholder=""
-              v-model.trim="confirmPassword"
-            />
-          </div>
-          <div v-if="passwordError" class="field">
-            <p class="help is-danger">{{ passwordError }}</p>
-          </div>
-        </div>
-        <div class="field">
-          <div class="control">
-            <label class="checkbox">
-              <input type="checkbox" v-model="tos" :disabled="isLoading" />
-              Declaro que li e concordo com os
-              <RouterLink
-                to="/tos"
-                class="link"
-                :style="{
-                  opacity: isLoading ? 0.5 : 1,
-                  pointerEvents: isLoading ? 'none' : 'auto',
-                }"
-                >Termos de Uso</RouterLink
-              >
-            </label>
           </div>
         </div>
         <div class="field">
@@ -91,7 +40,7 @@
               :class="{ 'is-loading': isLoading }"
               :disabled="!isFormValid || isLoading"
             >
-              Jogar agora
+              Acessar
             </button>
           </div>
         </div>
@@ -102,20 +51,16 @@
 </template>
 
 <script lang="ts" setup>
+import { showError } from '@/utils/utils';
 import { computed, ref, watch } from 'vue';
 
 const props = defineProps<{ active: boolean }>();
 
 const emit = defineEmits(['close']);
 const email = ref('');
-const confirmEmail = ref('');
 const emailError = ref('');
 
 const password = ref('');
-const confirmPassword = ref('');
-const passwordError = ref('');
-
-const tos = ref(false);
 
 const isLoading = ref(false);
 
@@ -138,24 +83,12 @@ watch(
   }
 );
 
-watch([email, confirmEmail], () => {
+watch([email], () => {
   emailError.value = '';
 });
 
-watch([password, confirmPassword], () => {
-  passwordError.value = '';
-});
-
 const isFormValid = computed(() => {
-  return (
-    !emailError.value &&
-    !passwordError.value &&
-    email.value &&
-    confirmEmail.value &&
-    password.value &&
-    confirmPassword.value &&
-    tos.value
-  );
+  return !emailError.value && email.value && password.value;
 });
 
 function closeModal() {
@@ -166,7 +99,6 @@ function closeModal() {
 
 async function handleSubmit() {
   emailError.value = '';
-  passwordError.value = '';
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(email.value)) {
@@ -174,27 +106,11 @@ async function handleSubmit() {
     return;
   }
 
-  if (email.value !== confirmEmail.value) {
-    emailError.value = 'Os e-mails não coincidem.';
-    return;
-  }
-
-  if (password.value.length < 6) {
-    passwordError.value = 'A senha deve conter no mínimo 6 caracteres.';
-    return;
-  }
-
-  if (password.value !== confirmPassword.value) {
-    passwordError.value = 'As senhas não coincidem.';
-    return;
-  }
-
   isLoading.value = true;
 
   setTimeout(() => {
     isLoading.value = false;
-    alert('Cadastro realizado com sucesso!');
-    emit('close');
+    showError('E-mail ou senha inválidos!');
   }, 2000);
 }
 </script>
