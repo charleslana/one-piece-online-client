@@ -29,11 +29,11 @@
     </div>
     <div class="footer-menu-container">
       <ul class="sub-footer">
-        <li><RouterLink to="/">Manual</RouterLink></li>
+        <li><RouterLink to="/manual">Manual</RouterLink></li>
         <li><RouterLink to="/news">Notícias</RouterLink></li>
-        <li><RouterLink to="/">Hall da fama</RouterLink></li>
-        <li><RouterLink to="/">Divulgue-nos</RouterLink></li>
-        <li><RouterLink to="/">Contato</RouterLink></li>
+        <li><RouterLink to="/ranking">Hall da fama</RouterLink></li>
+        <li><RouterLink to="/disclosure">Divulgue-nos</RouterLink></li>
+        <li><RouterLink to="/contact">Contato</RouterLink></li>
       </ul>
       <p class="games-info is-uppercase has-text-centered">Nossos jogos: One Piece Online</p>
       <div class="mt-3">
@@ -48,10 +48,10 @@
         reservados
       </div>
       <ul class="sub-footer">
-        <li><RouterLink to="/">Termos de uso</RouterLink></li>
-        <li><RouterLink to="/news">Política de privacidade</RouterLink></li>
-        <li><RouterLink to="/">Regras e punições</RouterLink></li>
-        <li><RouterLink to="/">Aviso legal</RouterLink></li>
+        <li><RouterLink to="/tos">Termos de uso</RouterLink></li>
+        <li><RouterLink to="/privacy-policy">Política de privacidade</RouterLink></li>
+        <li><RouterLink to="/rules">Regras e punições</RouterLink></li>
+        <li><RouterLink to="/legal-notice">Aviso legal</RouterLink></li>
       </ul>
     </div>
   </footer>

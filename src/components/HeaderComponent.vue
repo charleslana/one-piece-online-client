@@ -15,8 +15,8 @@
     <ul v-if="mobileMenuVisible" class="panel-mobile">
       <router-link to="/"><li class="has-text-white py-2">Home</li></router-link>
       <router-link to="/news"><li class="has-text-white py-2">Notícias</li></router-link>
-      <router-link to="/error"><li class="has-text-white py-2">Hall da Fama</li></router-link>
-      <router-link to="/error"><li class="has-text-white py-2">Contato</li></router-link>
+      <router-link to="/ranking"><li class="has-text-white py-2">Hall da Fama</li></router-link>
+      <router-link to="/contact"><li class="has-text-white py-2">Contato</li></router-link>
     </ul>
     <div class="logo is-hidden-touch"></div>
     <div class="mini-logo is-hidden-tablet"></div>
@@ -27,10 +27,10 @@
       <router-link to="/news">
         <li>Notícias</li>
       </router-link>
-      <router-link to="/error">
+      <router-link to="/ranking">
         <li>Hall da Fama</li>
       </router-link>
-      <router-link to="/error">
+      <router-link to="/contact">
         <li>Contato</li>
       </router-link>
     </ul>
