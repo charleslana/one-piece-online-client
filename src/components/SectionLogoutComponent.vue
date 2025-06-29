@@ -7,6 +7,6 @@
 <style scoped>
 .logout {
   background-color: #0c306a;
-  height: 15rem;
+  height: 18rem;
 }
 </style>

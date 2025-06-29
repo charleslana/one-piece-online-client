@@ -1,16 +1,17 @@
 <template>
-  <div class="info info-top">
-    <font-awesome-icon :icon="icon" size="2x" color="white" />
-    <div class="info-title">{{ title }}</div>
-  </div>
-
-  <div class="info-content">
-    <div class="columns">
-      <div class="column is-8">
-        <slot></slot>
-      </div>
-      <div class="column is-4 is-hidden-touch">
-        <img :src="imageUrl" alt="info image" class="info-character" />
+  <div class="mb-5">
+    <div class="info info-top">
+      <font-awesome-icon :icon="icon" size="2x" color="white" />
+      <div class="info-title">{{ title }}</div>
+    </div>
+    <div class="info-content">
+      <div class="columns">
+        <div class="column is-8">
+          <slot></slot>
+        </div>
+        <div class="column is-4 is-hidden-touch">
+          <img :src="imageUrl" alt="info image" class="info-character" />
+        </div>
       </div>
     </div>
   </div>

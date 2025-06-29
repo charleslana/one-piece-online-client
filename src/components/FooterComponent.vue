@@ -1,5 +1,5 @@
 <template>
-  <footer class="footer footer-top">
+  <footer class="footer footer-top mt-5">
     <div class="content has-text-centered">
       <p class="is-uppercase is-italic tahoama">Fique conectado</p>
       <div>
