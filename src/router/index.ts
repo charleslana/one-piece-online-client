@@ -7,6 +7,7 @@ import NotFound from '@/views/NotFound.vue';
 import NewsList from '@/views/NewsList.vue';
 import NewsDetail from '@/views/NewsDetail.vue';
 import TOS from '@/views/TOS.vue';
+import PrivacyPolicy from '@/views/PrivacyPolicy.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
@@ -26,6 +27,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/tos',
     name: 'tos',
     component: TOS,
+  },
+  {
+    path: '/privacy-policy',
+    name: 'privacy-policy',
+    component: PrivacyPolicy,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];

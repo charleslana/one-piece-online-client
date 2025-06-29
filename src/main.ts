@@ -11,10 +11,11 @@ import 'animate.css';
 import 'sweetalert2/src/sweetalert2.scss';
 
 import { faUser, faSkullCrossbones, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
+import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faUser, faSkullCrossbones, faExclamationCircle);
+library.add(faUser, faSkullCrossbones, faExclamationCircle, faFileAlt);
 
 const app = createApp(App);
 

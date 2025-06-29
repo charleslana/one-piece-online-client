@@ -41,7 +41,7 @@
         <img src="../assets/images/social/usa.svg" alt="social image" class="footer-flags" />
       </div>
       <div class="mt-3 is-uppercase has-text-centered">
-        © {{ currentYear }} One Piece Online - Todos os direitos reservados
+        © {{ releaseYear }} - {{ currentYear }} One Piece Online - Todos os direitos reservados
       </div>
       <div class="mt-3 is-uppercase has-text-centered">
         Personagens e ilustrações originais © copyright 1997 por Eiichiro Oda. Todos os direitos
@@ -58,6 +58,7 @@
 </template>
 
 <script lang="ts" setup>
+const releaseYear = '2025';
 const currentYear = new Date().getFullYear();
 </script>
 
