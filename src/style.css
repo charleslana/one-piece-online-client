@@ -36,6 +36,11 @@ body {
   src: url(./assets/fonts/TAHOAMA.ttf);
 }
 
+@font-face {
+  font-family: Balto;
+  src: url(./assets/fonts/BaltoBold.otf);
+}
+
 .phagspa {
   font-family: Phagspa !important;
 }

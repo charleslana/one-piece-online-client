@@ -6,20 +6,26 @@ import About from '@/views/About.vue';
 import NotFound from '@/views/NotFound.vue';
 import NewsList from '@/views/NewsList.vue';
 import NewsDetail from '@/views/NewsDetail.vue';
+import TOS from '@/views/TOS.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
   { path: '/about', name: 'About', component: About },
   {
     path: '/news',
-    name: 'NewsList',
+    name: 'news',
     component: NewsList,
   },
   {
     path: '/news/:id',
-    name: 'NewsDetail',
+    name: 'news-detail',
     component: NewsDetail,
     props: true,
+  },
+  {
+    path: '/tos',
+    name: 'tos',
+    component: TOS,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];
