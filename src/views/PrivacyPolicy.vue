@@ -17,7 +17,7 @@
         <div class="column is-3">
           <aside class="menu">
             <ul class="menu-list">
-              <li v-for="menu in menus" :key="menu.key">
+              <li v-for="menu in menus" :key="menu.key" class="phagspa">
                 <a
                   :class="{ 'is-active': selectedMenu === menu.key }"
                   @click="selectedMenu = menu.key"
