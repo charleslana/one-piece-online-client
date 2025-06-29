@@ -104,6 +104,7 @@
 </template>
 
 <script lang="ts" setup>
+import { alertError } from '@/utils/utils';
 import { computed, ref, watch } from 'vue';
 
 const props = defineProps<{ active: boolean }>();
@@ -195,7 +196,10 @@ async function handleSubmit() {
 
   setTimeout(() => {
     isLoading.value = false;
-    alert('Cadastro realizado com sucesso!');
+    alertError(
+      'Não foi possível realizar o cadastro',
+      'Um ou mais problemas estão acontecendo: o E-mail digitado não é válido'
+    );
     emit('close');
   }, 2000);
 }

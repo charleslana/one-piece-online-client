@@ -98,3 +98,12 @@ a {
 .mb-8rem {
   margin-bottom: 8rem !important;
 }
+
+@media (max-width: 1024px) {
+  .container {
+    max-width: none !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: 100%;
+  }
+}
