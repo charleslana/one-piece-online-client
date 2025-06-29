@@ -48,19 +48,19 @@
     >
       <div class="is-size-5 is-uppercase has-text-weight-bold has-text-white">Social</div>
       <div class="is-flex">
-        <a href="#" target="_blank" class="ml-5">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="ml-5">
           <img src="../assets/images/social/twitter.png" alt="social icon" />
         </a>
-        <a href="#" target="_blank" class="ml-3">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="ml-3">
           <img src="../assets/images/social/facebook.png" alt="social icon" />
         </a>
-        <a href="#" target="_blank" class="ml-3">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="ml-3">
           <img src="../assets/images/social/youtube.png" alt="social icon" />
         </a>
-        <a href="#" target="_blank" class="ml-3">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="ml-3">
           <img src="../assets/images/social/whatsapp.png" alt="social icon" />
         </a>
-        <a href="#" target="_blank" class="ml-3">
+        <a href="#" target="_blank" rel="noopener noreferrer" class="ml-3">
           <img src="../assets/images/social/discord.png" alt="social icon" />
         </a>
       </div>

@@ -13,7 +13,7 @@
             <input
               class="input is-shadowless"
               :class="{ 'is-danger': emailError }"
-              type="text"
+              type="email"
               placeholder=""
               v-model.trim="email"
             />
@@ -28,7 +28,7 @@
             <input
               class="input is-shadowless"
               :class="{ 'is-danger': emailError }"
-              type="text"
+              type="email"
               placeholder=""
               v-model.trim="confirmEmail"
             />
@@ -72,14 +72,16 @@
             <label class="checkbox">
               <input type="checkbox" v-model="tos" :disabled="isLoading" />
               Declaro que li e concordo com os
-              <RouterLink
-                to="/tos"
+              <a
+                href="/tos"
+                target="_blank"
                 class="link"
+                rel="noopener noreferrer"
                 :style="{
                   opacity: isLoading ? 0.5 : 1,
                   pointerEvents: isLoading ? 'none' : 'auto',
                 }"
-                >Termos de Uso</RouterLink
+                >Termos de Uso</a
               >
             </label>
           </div>

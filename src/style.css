@@ -84,3 +84,17 @@ body {
 .page-content {
   flex-grow: 1;
 }
+
+p {
+  font-family: Tahoama !important;
+}
+
+li,
+ul,
+a {
+  font-family: Phagspa !important;
+}
+
+.mb-8rem {
+  margin-bottom: 8rem !important;
+}

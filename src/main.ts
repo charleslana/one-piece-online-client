@@ -15,13 +15,15 @@ import {
   faSkullCrossbones,
   faExclamationCircle,
   faBullhorn,
+  faKey,
 } from '@fortawesome/free-solid-svg-icons';
+
 import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faUser, faSkullCrossbones, faExclamationCircle, faFileAlt, faBullhorn);
+library.add(faUser, faSkullCrossbones, faExclamationCircle, faFileAlt, faBullhorn, faKey);
 
 const app = createApp(App);
 

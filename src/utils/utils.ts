@@ -20,6 +20,24 @@ export function showError(title: string) {
   });
 }
 
+export function alertSuccess(title: string, text: string) {
+  return Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title,
+    text,
+  });
+}
+
+export function alertError(title: string, text: string) {
+  return Swal.fire({
+    position: 'center',
+    icon: 'error',
+    title,
+    text,
+  });
+}
+
 export function formatDate(dateInput: string | Date): string {
   const date = new Date(dateInput);
   if (isNaN(date.getTime())) return 'Data inválida';

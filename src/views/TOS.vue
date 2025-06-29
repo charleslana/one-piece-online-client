@@ -106,7 +106,7 @@
                   proibido, estando sujeito o usuário infrator, em caso de violação, às sanções
                   penais cabíveis – sem prejuízo da responsabilização civil e consequente
                   indenização por perdas e danos, nos termos dos arts. 186, 187 e 927, todos do
-                  Código Civil Brasileiro de 1997.
+                  Código Civil Brasileiro de 2002.
                 </p>
                 <p class="description mt-3">
                   Ao continuar o acesso ao <i>{{ name }}</i
