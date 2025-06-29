@@ -13,7 +13,7 @@
             <input
               class="input is-shadowless"
               :class="{ 'is-danger': emailError }"
-              type="text"
+              type="email"
               placeholder=""
               v-model.trim="email"
             />
@@ -45,6 +45,9 @@
           </div>
         </div>
       </form>
+      <div class="modal-footer mt-5">
+        <router-link to="/recovery-password">Esqueci minha senha</router-link>
+      </div>
     </div>
     <button class="modal-close is-large" aria-label="close" @click="closeModal"></button>
   </div>
@@ -140,5 +143,30 @@ async function handleSubmit() {
   padding: 15px;
   box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);
   transform: translateY(2.7rem);
+}
+
+.modal-footer {
+  background: #ecf0f1;
+  border-color: #dee4e7;
+  text-align: center;
+  justify-content: center;
+  margin: 0 -20px -20px;
+  border-radius: 5px;
+  font-size: 13px;
+  padding: 1rem;
+  border-top: 1px solid #e9ecef;
+  display: flex;
+  align-items: center;
+}
+
+.modal-footer a {
+  color: #999;
+  font-size: inherit;
+  font-weight: normal;
+  letter-spacing: revert;
+}
+
+.modal-footer a:hover {
+  text-decoration: underline;
 }
 </style>

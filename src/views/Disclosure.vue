@@ -8,7 +8,7 @@
           Ajude a divulgar o nosso Site! Cole o código do Banner que vc desejar em seu site/blog.
         </p>
       </InfoComponent>
-      <div>Em breve.</div>
+      <p class="has-text-black">Em breve.</p>
     </div>
     <FooterComponent />
   </main>

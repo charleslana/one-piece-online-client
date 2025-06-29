@@ -3,26 +3,26 @@
     <div class="content has-text-centered">
       <p class="is-uppercase is-italic tahoama">Fique conectado</p>
       <div>
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="../assets/images/social/twitter.png" alt="social image" class="social-image" />
         </a>
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="../assets/images/social/facebook.png" alt="social image" class="social-image" />
         </a>
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="../assets/images/social/youtube.png" alt="social image" class="social-image" />
         </a>
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noopener noreferrer">
           <img
             src="../assets/images/social/instagram.png"
             alt="social image"
             class="social-image"
           />
         </a>
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="../assets/images/social/whatsapp.png" alt="social image" class="social-image" />
         </a>
-        <a href="#" target="_blank">
+        <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="../assets/images/social/discord.png" alt="social image" class="social-image" />
         </a>
       </div>

@@ -12,6 +12,8 @@ import Rules from '@/views/Rules.vue';
 import Manual from '@/views/Manual.vue';
 import Disclosure from '@/views/Disclosure.vue';
 import Contact from '@/views/Contact.vue';
+import LegalNotice from '@/views/LegalNotice.vue';
+import RecoveryPassword from '@/views/RecoveryPassword.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
@@ -56,6 +58,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/contact',
     name: 'contact',
     component: Contact,
+  },
+  {
+    path: '/legal-notice',
+    name: 'legal-notice',
+    component: LegalNotice,
+  },
+  {
+    path: '/recovery-password',
+    name: 'recovery-password',
+    component: RecoveryPassword,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];

@@ -63,7 +63,9 @@
                 </p>
                 <p class="description mt-3">
                   Caso este e-mail não chegue, é possível fazer a confirmação manual através do link
-                  "<a href="#" target="_blank" class="link2 is-uppercase">Ativar minha conta</a>".
+                  "<a href="#" target="_blank" rel="noopener noreferrer" class="link2 is-uppercase"
+                    >Ativar minha conta</a
+                  >".
                 </p>
                 <p class="description mt-3">
                   O atraso do envio de ativamente, pode ser entre eles o cadastro de e-mail errado.
@@ -88,6 +90,7 @@
                   Uma Nova senha pode ser solicitada através do link "<a
                     href="#"
                     target="_blank"
+                    rel="noopener noreferrer"
                     class="link2 is-uppercase"
                     >Esqueci minha senha</a
                   >".
@@ -96,7 +99,11 @@
                 <p class="description mt-3">
                   A alteração da senha é essencial para que a sua conta fique segura. O jogador deve
                   alterar a senha através do menu, uma vez selecionado um personagem, estará
-                  disponível o link “<a href="#" target="_blank" class="link2 is-uppercase"
+                  disponível o link “<a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="link2 is-uppercase"
                     >Trocar senha</a
                   >” para que o mesmo seja feito.
                 </p>
@@ -197,7 +204,7 @@
                   Qualquer mensagem que tire a integridade de um jogador, seja ela com xingamento,
                   agressiva ou ameaçadora não é permitido e são considerados atitudes de má conduta.
                   Além de ser extremamente desagradável. Todos devem respeitar as pessoas para que o
-                  NG sempre seja um lugar de divertimento.
+                  {{ name }} sempre seja um lugar de divertimento.
                 </p>
                 <p class="description mt-3">
                   Caso alguém seja ofendido por outro jogador ou presenciar uma atitude ofensiva

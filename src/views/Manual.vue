@@ -34,7 +34,7 @@
                 <div class="title is-3">Download do Manual Completo em PDF</div>
                 <p class="description"><b>Nome:</b> Manual Completo</p>
                 <p class="description mb-3"><b>Tamanho:</b> 0MB</p>
-                <a href="#" target="_blank" class="link2">Ver o Manual</a>
+                <a href="#" target="_blank" rel="noopener noreferrer" class="link2">Ver o Manual</a>
               </div>
               <div v-if="selectedMenu === 'Manual em Videos'">
                 <div class="title is-3">Manual em Videos</div>
