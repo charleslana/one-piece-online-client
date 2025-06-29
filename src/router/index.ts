@@ -4,11 +4,14 @@ import type { RouteRecordRaw } from 'vue-router';
 import Home from '@/views/Home.vue';
 import About from '@/views/About.vue';
 import NotFound from '@/views/NotFound.vue';
-import NewsList from '@/views/NewsList.vue';
+import News from '@/views/News.vue';
 import NewsDetail from '@/views/NewsDetail.vue';
 import TOS from '@/views/TOS.vue';
 import PrivacyPolicy from '@/views/PrivacyPolicy.vue';
 import Rules from '@/views/Rules.vue';
+import Manual from '@/views/Manual.vue';
+import Disclosure from '@/views/Disclosure.vue';
+import Contact from '@/views/Contact.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
@@ -16,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/news',
     name: 'news',
-    component: NewsList,
+    component: News,
   },
   {
     path: '/news/:id',
@@ -38,6 +41,21 @@ const routes: Array<RouteRecordRaw> = [
     path: '/rules',
     name: 'rules',
     component: Rules,
+  },
+  {
+    path: '/manual',
+    name: 'manual',
+    component: Manual,
+  },
+  {
+    path: '/disclosure',
+    name: 'disclosure',
+    component: Disclosure,
+  },
+  {
+    path: '/contact',
+    name: 'contact',
+    component: Contact,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];

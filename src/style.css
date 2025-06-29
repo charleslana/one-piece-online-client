@@ -61,6 +61,15 @@ body {
   text-decoration: underline;
 }
 
+.link2 {
+  color: #007bff;
+}
+
+.link2:hover {
+  text-decoration: underline;
+  color: #0056b3;
+}
+
 .columns {
   margin-inline-start: 0px !important;
   margin-inline-end: 0px !important;
