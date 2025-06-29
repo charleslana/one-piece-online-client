@@ -10,11 +10,11 @@ import 'bulma-modal-fx/dist/css/modal-fx.min.css';
 import 'animate.css';
 import 'sweetalert2/src/sweetalert2.scss';
 
-import { faUser, faSkullCrossbones } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faSkullCrossbones, faExclamationCircle } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faUser, faSkullCrossbones);
+library.add(faUser, faSkullCrossbones, faExclamationCircle);
 
 const app = createApp(App);
 
