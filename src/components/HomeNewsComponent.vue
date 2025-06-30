@@ -1,7 +1,7 @@
 <template>
   <div class="mb-5">
     <nav class="level is-uppercase">
-      <div class="level-left gtamerica last-news is-size-2 has-text-centered has-text-dark">
+      <div class="level-left gtamerica last-news is-size-2 has-text-centered has-text-black">
         Ultimas Noticias
       </div>
       <div class="level-right phagspa">
