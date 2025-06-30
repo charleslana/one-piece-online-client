@@ -1,13 +1,15 @@
 <template>
   <div class="mb-5">
     <nav class="level is-uppercase">
-      <div class="level-left gtamerica last-news is-size-2 has-text-centered">Ultimas Noticias</div>
+      <div class="level-left gtamerica last-news is-size-2 has-text-centered has-text-dark">
+        Ultimas Noticias
+      </div>
       <div class="level-right phagspa">
         <RouterLink to="/news" class="link has-text-centered">Ver todas as notícias</RouterLink>
       </div>
     </nav>
-    <div class="columns">
-      <div class="column" v-for="(news, index) in newsList" :key="index">
+    <div class="columns is-multiline">
+      <div class="column is-one-third" v-for="(news, index) in newsList" :key="index">
         <RouterLink :to="`/news/${news.id}`">
           <div class="card">
             <div class="card-image">
@@ -33,7 +35,7 @@ import { formatDate, getNewsImageUrl } from '@/utils/utils';
 import { ref } from 'vue';
 
 interface NewsItem {
-  id: string;
+  id: number;
   image: string;
   title: string;
   date: string;
@@ -41,19 +43,19 @@ interface NewsItem {
 
 const newsList = ref<NewsItem[]>([
   {
-    id: '9c6f7b7a-1292-4cd0-bf9c-7f1f2e4eb43e',
+    id: 1,
     image: getNewsImageUrl('news-01.jpg'),
     title: 'Notícias número #01',
     date: '2025-06-27T14:23:00Z',
   },
   {
-    id: '532f5aa9-7a4e-42b0-a326-27fa54d8a4de',
+    id: 2,
     image: getNewsImageUrl('news-02.jpg'),
     title: 'Notícias número #02',
     date: '2025-06-26T14:23:00Z',
   },
   {
-    id: '0346d58e-66eb-4c2a-86db-2908ac20e174',
+    id: 3,
     image: getNewsImageUrl('news-03.jpg'),
     title: 'Notícias número #03',
     date: '2025-06-25T14:23:00Z',

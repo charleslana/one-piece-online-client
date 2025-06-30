@@ -1,17 +1,20 @@
 <template>
   <main class="page-container">
-    <section class="section page-content">
-      <div class="container">
-        <h1 class="title" v-for="i in 1" :key="i">News {{ i }}</h1>
-        <RouterLink to="/" class="button is-primary">Botão Home</RouterLink>
-      </div>
-    </section>
+    <HeaderComponent />
+    <SectionLogoutComponent />
+    <div class="page-content container mt-5 mb-8rem">
+      <p class="title is-1 is-uppercase gtamerica">Noticias dos mares</p>
+      <NewsComponent />
+    </div>
     <FooterComponent />
   </main>
 </template>
 
 <script lang="ts" setup>
 import FooterComponent from '@/components/FooterComponent.vue';
+import HeaderComponent from '@/components/HeaderComponent.vue';
+import NewsComponent from '@/components/NewsComponent.vue';
+import SectionLogoutComponent from '@/components/SectionLogoutComponent.vue';
 </script>
 
 <style lang="css" scoped></style>

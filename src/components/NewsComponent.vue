@@ -1,0 +1,120 @@
+<template>
+  <div class="columns is-multiline">
+    <div class="column is-one-third" v-for="(news, index) in newsList" :key="index">
+      <RouterLink :to="`/news/${news.id}`">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3 image-zoom-container">
+              <img :src="news.image" :alt="news.title" class="zoom-image" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <time :datetime="news.date">{{ formatDate(news.date) }}</time>
+              <div class="news-title">{{ news.title }}</div>
+            </div>
+          </div>
+        </div>
+      </RouterLink>
+    </div>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { formatDate, getNewsImageUrl } from '@/utils/utils';
+import { ref } from 'vue';
+
+interface NewsItem {
+  id: number;
+  image: string;
+  title: string;
+  date: string;
+}
+
+const newsList = ref<NewsItem[]>([
+  {
+    id: 1,
+    image: getNewsImageUrl('news-01.jpg'),
+    title: 'Notícias número #01',
+    date: '2025-06-27T14:23:00Z',
+  },
+  {
+    id: 2,
+    image: getNewsImageUrl('news-02.jpg'),
+    title: 'Notícias número #02',
+    date: '2025-06-26T14:23:00Z',
+  },
+  {
+    id: 3,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #03',
+    date: '2025-06-25T14:23:00Z',
+  },
+  {
+    id: 4,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #04',
+    date: '2025-06-24T14:23:00Z',
+  },
+  {
+    id: 5,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #05',
+    date: '2025-06-23T14:23:00Z',
+  },
+  {
+    id: 6,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #06',
+    date: '2025-06-22T14:23:00Z',
+  },
+  {
+    id: 7,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #07',
+    date: '2025-06-21T14:23:00Z',
+  },
+]);
+</script>
+
+<style scoped>
+.image-zoom-container {
+  overflow: hidden;
+  margin: 0;
+  border-radius: 4px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.zoom-image {
+  transition: transform 0.4s ease;
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.zoom-image:hover {
+  transform: scale(1.1);
+}
+
+.card {
+  grid-area: 1 / 1;
+  height: 100%;
+  box-shadow: inset 8rem 54rem 0rem 0rem #0c306a;
+}
+
+time {
+  font-size: 1rem;
+  color: #e9af64;
+  font-weight: 700;
+}
+
+.news-title {
+  color: #fff;
+  font-size: 1.3rem;
+  font-family: Phagspa !important;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+</style>
