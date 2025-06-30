@@ -1,31 +1,21 @@
 <template>
-  <div class="mb-5">
-    <nav class="level is-uppercase">
-      <div class="level-left gtamerica last-news is-size-2 has-text-centered has-text-dark">
-        Ultimas Noticias
-      </div>
-      <div class="level-right phagspa">
-        <RouterLink to="/news" class="link has-text-centered">Ver todas as notícias</RouterLink>
-      </div>
-    </nav>
-    <div class="columns is-multiline">
-      <div class="column is-one-third" v-for="(news, index) in newsList" :key="index">
-        <RouterLink :to="`/news/${news.id}`">
-          <div class="card">
-            <div class="card-image">
-              <figure class="image is-4by3 image-zoom-container">
-                <img :src="news.image" :alt="news.title" class="zoom-image" />
-              </figure>
-            </div>
-            <div class="card-content">
-              <div class="content">
-                <time :datetime="news.date">{{ formatDate(news.date) }}</time>
-                <div class="news-title">{{ news.title }}</div>
-              </div>
+  <div class="columns is-multiline">
+    <div class="column is-one-third" v-for="(news, index) in newsList" :key="index">
+      <RouterLink :to="`/news/${news.id}`">
+        <div class="card">
+          <div class="card-image">
+            <figure class="image is-4by3 image-zoom-container">
+              <img :src="news.image" :alt="news.title" class="zoom-image" />
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="content">
+              <time :datetime="news.date">{{ formatDate(news.date) }}</time>
+              <div class="news-title">{{ news.title }}</div>
             </div>
           </div>
-        </RouterLink>
-      </div>
+        </div>
+      </RouterLink>
     </div>
   </div>
 </template>
@@ -59,6 +49,30 @@ const newsList = ref<NewsItem[]>([
     image: getNewsImageUrl('news-03.jpg'),
     title: 'Notícias número #03',
     date: '2025-06-25T14:23:00Z',
+  },
+  {
+    id: 4,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #04',
+    date: '2025-06-24T14:23:00Z',
+  },
+  {
+    id: 5,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #05',
+    date: '2025-06-23T14:23:00Z',
+  },
+  {
+    id: 6,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #06',
+    date: '2025-06-22T14:23:00Z',
+  },
+  {
+    id: 7,
+    image: getNewsImageUrl('news-03.jpg'),
+    title: 'Notícias número #07',
+    date: '2025-06-21T14:23:00Z',
   },
 ]);
 </script>
