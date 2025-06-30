@@ -107,3 +107,11 @@ a {
     width: 100%;
   }
 }
+
+.has-text-orange {
+  color: #ea893e;
+}
+
+.has-text-yellow {
+  color: #f1be47;
+}

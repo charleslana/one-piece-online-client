@@ -31,7 +31,7 @@
       <ul class="sub-footer">
         <li><RouterLink to="/manual">Manual</RouterLink></li>
         <li><RouterLink to="/news">Notícias</RouterLink></li>
-        <li><RouterLink to="/ranking">Hall da fama</RouterLink></li>
+        <li><RouterLink to="/hall-of-fame">Hall da fama</RouterLink></li>
         <li><RouterLink to="/disclosure">Divulgue-nos</RouterLink></li>
         <li><RouterLink to="/contact">Contato</RouterLink></li>
       </ul>

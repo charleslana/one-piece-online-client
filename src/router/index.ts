@@ -14,6 +14,7 @@ import Disclosure from '@/views/Disclosure.vue';
 import Contact from '@/views/Contact.vue';
 import LegalNotice from '@/views/LegalNotice.vue';
 import RecoveryPassword from '@/views/RecoveryPassword.vue';
+import HallOfFame from '@/views/HallOfFame.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
@@ -68,6 +69,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/recovery-password',
     name: 'recovery-password',
     component: RecoveryPassword,
+  },
+  {
+    path: '/hall-of-fame',
+    name: 'hall-of-fame',
+    component: HallOfFame,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];
