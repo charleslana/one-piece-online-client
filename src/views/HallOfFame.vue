@@ -9,8 +9,9 @@
           guardadas aqui, para que possam sempre ser lembrados como os viajantes dos mares.
         </p>
         <p class="mt-3">
-          Acesse os Hall da Fama de: <RouterLink to="/" class="link2">Equipe</RouterLink> e
-          <RouterLink to="/" class="link2">Facção</RouterLink>
+          Acesse os Hall da Fama de:
+          <RouterLink to="/hall-of-fame-team" class="link2">Equipe</RouterLink> e
+          <RouterLink to="/hall-of-fame-guild" class="link2">Organização</RouterLink>
         </p>
       </InfoComponent>
       <div class="title is-3">Filtros do Hall da fama</div>
