@@ -21,7 +21,11 @@ import {
   faAward,
 } from '@fortawesome/free-solid-svg-icons';
 
-import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
+import {
+  faFileAlt,
+  faCalendarAlt,
+  faUser as faUserRegular,
+} from '@fortawesome/free-regular-svg-icons';
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -35,7 +39,9 @@ library.add(
   faKey,
   faTrophy,
   faMedal,
-  faAward
+  faAward,
+  faCalendarAlt,
+  faUserRegular
 );
 
 const app = createApp(App);
