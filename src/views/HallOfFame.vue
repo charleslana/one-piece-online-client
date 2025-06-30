@@ -6,7 +6,7 @@
       <InfoComponent :icon="['fa', 'trophy']" title="Hall da fama" image="info-1.png">
         <p>
           As memórias dos grandes piratas, revolucionários e marinheiros do {{ name }} estão
-          guardadas aqui, para que possam sempre ser lembrados como heróis de suas temporadas.
+          guardadas aqui, para que possam sempre ser lembrados como os viajantes dos mares.
         </p>
         <p class="mt-3">
           Acesse os Hall da Fama de: <RouterLink to="/" class="link2">Equipe</RouterLink> e
