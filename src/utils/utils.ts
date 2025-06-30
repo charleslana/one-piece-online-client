@@ -61,3 +61,14 @@ export function formatDateTime(dateInput: string | Date): string {
 export function getNewsImageUrl(fileName: string): string {
   return new URL(`../assets/images/news/${fileName}`, import.meta.url).href;
 }
+
+export const formatNumber = (number: number | string): string => {
+  number = +number;
+  return number.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1.');
+};
+
+export function formatCompactNumber(number: number | string): string {
+  number = +number;
+  const formatter = new Intl.NumberFormat('en-US', { notation: 'compact' });
+  return formatter.format(number);
+}

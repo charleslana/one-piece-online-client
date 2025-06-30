@@ -16,6 +16,9 @@ import {
   faExclamationCircle,
   faBullhorn,
   faKey,
+  faTrophy,
+  faMedal,
+  faAward,
 } from '@fortawesome/free-solid-svg-icons';
 
 import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
@@ -23,7 +26,17 @@ import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 
-library.add(faUser, faSkullCrossbones, faExclamationCircle, faFileAlt, faBullhorn, faKey);
+library.add(
+  faUser,
+  faSkullCrossbones,
+  faExclamationCircle,
+  faFileAlt,
+  faBullhorn,
+  faKey,
+  faTrophy,
+  faMedal,
+  faAward
+);
 
 const app = createApp(App);
 

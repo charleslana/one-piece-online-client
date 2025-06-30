@@ -21,7 +21,7 @@
           <div class="control">
             <input
               ref="emailInput"
-              class="input is-shadowless"
+              class="input is-shadowless is-medium"
               type="email"
               placeholder="Digite o email da sua conta"
               v-model.trim="email"
@@ -31,7 +31,7 @@
         <div class="field">
           <div class="control">
             <button
-              class="button is-link is-fullwidth"
+              class="button is-link is-fullwidth is-medium"
               :class="{ 'is-loading': isLoading }"
               :disabled="!isFormValid || isLoading"
             >
