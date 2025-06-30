@@ -16,6 +16,7 @@
               type="email"
               placeholder=""
               v-model.trim="email"
+              required
             />
           </div>
           <div v-if="emailError" class="field">
@@ -31,6 +32,7 @@
               type="email"
               placeholder=""
               v-model.trim="confirmEmail"
+              required
             />
           </div>
           <div v-if="emailError" class="field">
@@ -46,6 +48,7 @@
               type="password"
               placeholder=""
               v-model.trim="password"
+              required
             />
           </div>
           <div v-if="passwordError" class="field">
@@ -61,6 +64,7 @@
               type="password"
               placeholder=""
               v-model.trim="confirmPassword"
+              required
             />
           </div>
           <div v-if="passwordError" class="field">
@@ -70,7 +74,7 @@
         <div class="field">
           <div class="control">
             <label class="checkbox">
-              <input type="checkbox" v-model="tos" :disabled="isLoading" />
+              <input type="checkbox" v-model="tos" :disabled="isLoading" required />
               Declaro que li e concordo com os
               <a
                 href="/tos"

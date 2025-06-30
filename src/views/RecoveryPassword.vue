@@ -2,7 +2,7 @@
   <main class="page-container">
     <HeaderComponent />
     <SectionLogoutComponent />
-    <div class="page-content container">
+    <div class="page-content container mb-8rem">
       <InfoComponent :icon="['fa', 'key']" title="Esqueci minha senha" image="info-1.png">
         <p>
           Se você não lembra mais a sua senha, digite seu e-mail na qual fez o cadastro abaixo e
@@ -25,6 +25,7 @@
               type="email"
               placeholder="Digite o email da sua conta"
               v-model.trim="email"
+              required
             />
           </div>
         </div>
