@@ -16,6 +16,7 @@
               type="email"
               placeholder=""
               v-model.trim="email"
+              required
             />
           </div>
           <div v-if="emailError" class="field">
@@ -30,6 +31,7 @@
               type="password"
               placeholder=""
               v-model.trim="password"
+              required
             />
           </div>
         </div>
