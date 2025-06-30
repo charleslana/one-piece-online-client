@@ -3,14 +3,14 @@
     <HeaderComponent />
     <SectionLogoutComponent />
     <div class="page-content container">
-      <InfoComponent :icon="['fa', 'trophy']" title="Hall da fama" image="info-1.png">
+      <InfoComponent :icon="['fa', 'trophy']" title="Hall da fama equipes" image="info-1.png">
         <p>
           As memórias dos grandes piratas, revolucionários e marinheiros do {{ name }} estão
           guardadas aqui, para que possam sempre ser lembrados como os viajantes dos mares.
         </p>
         <p class="mt-3">
           Acesse os Hall da Fama de:
-          <RouterLink to="/hall-of-fame-team" class="link2">Equipe</RouterLink> e
+          <RouterLink to="/hall-of-fame" class="link2">Viajantes</RouterLink> e
           <RouterLink to="/hall-of-fame-guild" class="link2">Organização</RouterLink>
         </p>
       </InfoComponent>
@@ -55,36 +55,20 @@
         >
           <thead>
             <tr>
-              <th><abbr></abbr></th>
               <th><abbr>Posição</abbr></th>
               <th><abbr>Nome</abbr></th>
-              <th><abbr>Facção</abbr></th>
               <th><abbr>Nível</abbr></th>
               <th><abbr>Pontuação</abbr></th>
-              <th><abbr>Mar</abbr></th>
-              <th><abbr>Personagem</abbr></th>
+              <th><abbr>Facção</abbr></th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(entry, index) in rankingList" :key="index">
-              <th class="has-text-centered">
-                <font-awesome-icon
-                  :icon="['fa', getIconByPosition(index + 1)[0]]"
-                  size="2x"
-                  :class="getIconByPosition(index + 1)[1]"
-                />
-              </th>
               <td class="is-size-3 gtamerica has-text-centered">{{ index + 1 }}º</td>
               <td class="has-text-weight-bold">{{ entry.name }}</td>
-              <td>{{ entry.faction }}</td>
               <td>{{ entry.level }}</td>
               <td>{{ formatNumber(entry.score) }}</td>
-              <td>{{ entry.sea }}</td>
-              <td class="has-text-centered">
-                <div class="profile-mask">
-                  <img :src="getAvatarUrl(entry.character, entry.avatar)" alt="avatar image" />
-                </div>
-              </td>
+              <td>{{ entry.faction }}</td>
             </tr>
           </tbody>
         </table>
@@ -113,9 +97,6 @@ interface RankingEntry {
   faction: string;
   level: number;
   score: string;
-  sea: string;
-  character: string;
-  avatar: string;
 }
 
 type FactionKey = 'general' | 'marine' | 'pirate' | 'revolutionary';
@@ -142,63 +123,36 @@ const isFiltering = ref(false);
 
 const rankingList = ref<RankingEntry[]>([
   {
-    name: 'Zoro',
+    name: 'Rei dos mares',
     faction: 'Pirata',
     level: 10,
     score: '99999',
-    sea: 'East Blue',
-    character: '1',
-    avatar: '1.png',
   },
   {
-    name: 'Sakazuki',
+    name: 'piratas',
     faction: 'Marinha',
     level: 12,
     score: '89400',
-    sea: 'Grand Line',
-    character: '1',
-    avatar: '2.png',
   },
   {
-    name: 'Dragon',
+    name: 'revolucionários',
     faction: 'Revolucionário',
     level: 15,
     score: '78700',
-    sea: 'New World',
-    character: '1',
-    avatar: '3.png',
   },
   {
-    name: 'Smoker',
+    name: 'marinheiros',
     faction: 'Marinha',
     level: 8,
     score: '60000',
-    sea: 'East Blue',
-    character: '1',
-    avatar: '4.png',
   },
   {
-    name: 'Brook',
+    name: 'palhas123',
     faction: 'Pirata',
     level: 7,
     score: '57000',
-    sea: 'West Blue',
-    character: '1',
-    avatar: '5.png',
   },
 ]);
-
-function getIconByPosition(position: number): [string, string] {
-  if (position === 1) return ['trophy', 'has-text-warning'];
-  if (position === 2) return ['trophy', 'has-text-grey'];
-  if (position === 3) return ['trophy', 'has-text-orange'];
-  if (position === 4) return ['medal', 'has-text-yellow'];
-  return ['award', 'has-text-grey-light'];
-}
-
-function getAvatarUrl(character: string, fileName: string): string {
-  return new URL(`../assets/images/avatars/${character}/${fileName}`, import.meta.url).href;
-}
 
 function applyFilters() {
   isFiltering.value = true;
@@ -229,10 +183,6 @@ td {
   vertical-align: middle !important;
 }
 
-td:last-child {
-  text-align: center;
-}
-
 .profile-mask {
   width: 130px;
   height: 130px;
@@ -259,11 +209,11 @@ td:last-child {
   left: 0;
   width: 100%;
   height: 100%;
-  padding-top: 2rem; /* remover para centro */
+  padding-top: 2rem;
   background-color: rgba(255, 255, 255, 0.7);
   z-index: 10;
   display: flex;
-  align-items: flex-start; /* center */
+  align-items: flex-start;
   justify-content: center;
   pointer-events: all;
 }

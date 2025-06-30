@@ -15,6 +15,8 @@ import Contact from '@/views/Contact.vue';
 import LegalNotice from '@/views/LegalNotice.vue';
 import RecoveryPassword from '@/views/RecoveryPassword.vue';
 import HallOfFame from '@/views/HallOfFame.vue';
+import HallOfFameTeam from '@/views/HallOfFameTeam.vue';
+import HallOfFameGuild from '@/views/HallOfFameGuild.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
@@ -74,6 +76,16 @@ const routes: Array<RouteRecordRaw> = [
     path: '/hall-of-fame',
     name: 'hall-of-fame',
     component: HallOfFame,
+  },
+  {
+    path: '/hall-of-fame-team',
+    name: 'hall-of-fame-team',
+    component: HallOfFameTeam,
+  },
+  {
+    path: '/hall-of-fame-guild',
+    name: 'hall-of-fame-guild',
+    component: HallOfFameGuild,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];
