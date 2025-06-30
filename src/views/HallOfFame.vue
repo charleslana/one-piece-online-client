@@ -47,7 +47,7 @@
           </button>
         </div>
       </div>
-      <div class="table-container mb-8rem">
+      <div class="table-container mb-8rem is-relative">
         <table
           v-if="rankingList.length > 0"
           class="table is-striped is-bordered is-narrow is-hoverable is-fullwidth mt-5"
@@ -89,6 +89,9 @@
         </table>
         <div v-else class="notification is-light has-text-centered mt-5">
           Nenhum resultado encontrado.
+        </div>
+        <div v-if="isFiltering" class="table-loading-overlay">
+          <button class="button is-loading is-white is-large" disabled>Carregando...</button>
         </div>
       </div>
     </div>
@@ -247,5 +250,20 @@ td:last-child {
   left: 0;
   right: 0;
   border-radius: 4px;
+}
+
+.table-loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding-top: 2rem; /* remover para centro */
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+  display: flex;
+  align-items: flex-start; /* center */
+  justify-content: center;
+  pointer-events: all;
 }
 </style>
