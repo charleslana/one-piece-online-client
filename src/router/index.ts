@@ -17,6 +17,7 @@ import RecoveryPassword from '@/views/RecoveryPassword.vue';
 import HallOfFame from '@/views/HallOfFame.vue';
 import HallOfFameTeam from '@/views/HallOfFameTeam.vue';
 import HallOfFameGuild from '@/views/HallOfFameGuild.vue';
+import SelectCharacter from '@/views/SelectCharacter.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
@@ -86,6 +87,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/hall-of-fame-guild',
     name: 'hall-of-fame-guild',
     component: HallOfFameGuild,
+  },
+  {
+    path: '/select-character',
+    name: 'select-character',
+    component: SelectCharacter,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];

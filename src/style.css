@@ -119,3 +119,7 @@ a {
 .has-text-yellow {
   color: #f1be47;
 }
+
+.mt-8rem {
+  margin-top: 8rem !important;
+}

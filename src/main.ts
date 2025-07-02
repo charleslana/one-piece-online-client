@@ -19,6 +19,7 @@ import {
   faTrophy,
   faMedal,
   faAward,
+  faAngleDown,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -41,7 +42,8 @@ library.add(
   faMedal,
   faAward,
   faCalendarAlt,
-  faUserRegular
+  faUserRegular,
+  faAngleDown
 );
 
 const app = createApp(App);
