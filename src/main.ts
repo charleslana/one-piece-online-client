@@ -21,6 +21,7 @@ import {
   faAward,
   faAngleDown,
   faChevronRight,
+  faAngleLeft,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -45,7 +46,8 @@ library.add(
   faCalendarAlt,
   faUserRegular,
   faAngleDown,
-  faChevronRight
+  faChevronRight,
+  faAngleLeft
 );
 
 const app = createApp(App);
