@@ -16,9 +16,10 @@ import LegalNotice from '@/views/LegalNotice.vue';
 import RecoveryPassword from '@/views/RecoveryPassword.vue';
 import HallOfFame from '@/views/HallOfFame.vue';
 import HallOfFameFaction from '@/views/HallOfFameFaction.vue';
-import HallOfFameGuild from '@/views/HallOfFameGuild.vue';
+import HallOfFameCrew from '@/views/HallOfFameCrew.vue';
 import SelectCharacter from '@/views/SelectCharacter.vue';
 import CreateCharacter from '@/views/CreateCharacter.vue';
+import CharacterStatus from '@/views/CharacterStatus.vue';
 
 const routes: Array<RouteRecordRaw> = [
   { path: '/', name: 'Home', component: Home },
@@ -85,9 +86,9 @@ const routes: Array<RouteRecordRaw> = [
     component: HallOfFameFaction,
   },
   {
-    path: '/hall-of-fame-guild',
-    name: 'hall-of-fame-guild',
-    component: HallOfFameGuild,
+    path: '/hall-of-fame-crew',
+    name: 'hall-of-fame-crew',
+    component: HallOfFameCrew,
   },
   {
     path: '/select-character',
@@ -98,6 +99,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/create-character',
     name: 'create-character',
     component: CreateCharacter,
+  },
+  {
+    path: '/character-status',
+    name: 'character-status',
+    component: CharacterStatus,
   },
   { path: '/:pathMatch(.*)*', name: 'NotFound', component: NotFound },
 ];

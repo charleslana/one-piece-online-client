@@ -247,7 +247,7 @@ function deleteCharacter() {
 
 function playCharacter() {
   console.log(`jogando com o id ${selectedCharacter.value?.id}`);
-  router.push('/general');
+  router.push('/character-status');
 }
 </script>
 

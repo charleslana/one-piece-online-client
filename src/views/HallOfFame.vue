@@ -11,7 +11,7 @@
         <p class="mt-3">
           Acesse os Hall da Fama de:
           <RouterLink to="/hall-of-fame-faction" class="link2">Facção</RouterLink> e
-          <RouterLink to="/hall-of-fame-guild" class="link2">Organização</RouterLink>
+          <RouterLink to="/hall-of-fame-crew" class="link2">Tripulação</RouterLink>
         </p>
       </InfoComponent>
       <div class="title is-3">Filtros do Hall da fama</div>
