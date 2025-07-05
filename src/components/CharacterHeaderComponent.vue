@@ -115,7 +115,7 @@ const menus: Menu[] = [
     title: 'Personagem',
     disabled: false,
     items: [
-      { label: 'Status', to: '/' },
+      { label: 'Status', to: '/character-status' },
       { label: 'Haki', to: '/' },
       { label: 'Akuma no mi', to: '/' },
       { label: 'Raça', to: '/' },
