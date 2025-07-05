@@ -73,3 +73,11 @@ export function formatCompactNumber(number: number | string): string {
   const formatter = new Intl.NumberFormat('en-US', { notation: 'compact' });
   return formatter.format(number);
 }
+
+export function getAvatarUrl(character: string, fileName: string): string {
+  return new URL(`../assets/images/avatars/${character}/${fileName}`, import.meta.url).href;
+}
+
+export function getCharacterUrl(character: string, fileName: string): string {
+  return new URL(`../assets/images/characters/${character}/${fileName}`, import.meta.url).href;
+}

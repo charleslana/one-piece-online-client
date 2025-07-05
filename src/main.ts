@@ -22,6 +22,7 @@ import {
   faAngleDown,
   faChevronRight,
   faAngleLeft,
+  faIdBadge,
 } from '@fortawesome/free-solid-svg-icons';
 
 import {
@@ -47,7 +48,8 @@ library.add(
   faUserRegular,
   faAngleDown,
   faChevronRight,
-  faAngleLeft
+  faAngleLeft,
+  faIdBadge
 );
 
 const app = createApp(App);

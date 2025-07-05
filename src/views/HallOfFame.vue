@@ -105,7 +105,7 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
 import InfoComponent from '@/components/InfoComponent.vue';
 import SectionLogoutComponent from '@/components/SectionLogoutComponent.vue';
-import { formatNumber } from '@/utils/utils';
+import { formatNumber, getAvatarUrl } from '@/utils/utils';
 import { ref } from 'vue';
 
 interface RankingEntry {
@@ -194,10 +194,6 @@ function getIconByPosition(position: number): [string, string] {
   if (position === 3) return ['trophy', 'has-text-orange'];
   if (position === 4) return ['medal', 'has-text-yellow'];
   return ['award', 'has-text-grey-light'];
-}
-
-function getAvatarUrl(character: string, fileName: string): string {
-  return new URL(`../assets/images/avatars/${character}/${fileName}`, import.meta.url).href;
 }
 
 function applyFilters() {
