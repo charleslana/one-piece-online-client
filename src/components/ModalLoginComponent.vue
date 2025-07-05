@@ -58,6 +58,7 @@
 <script lang="ts" setup>
 import { showError } from '@/utils/utils';
 import { computed, ref, watch } from 'vue';
+import { useRouter } from 'vue-router';
 
 const props = defineProps<{ active: boolean }>();
 
@@ -70,6 +71,8 @@ const password = ref('');
 const isLoading = ref(false);
 
 let scrollPosition = 0;
+
+const router = useRouter();
 
 watch(
   () => props.active,
@@ -115,7 +118,12 @@ async function handleSubmit() {
 
   setTimeout(() => {
     isLoading.value = false;
-    showError('E-mail ou senha inválidos!');
+    const error = false;
+    if (error) {
+      showError('E-mail ou senha inválidos!');
+      return;
+    }
+    router.push('/select-character');
   }, 2000);
 }
 </script>
