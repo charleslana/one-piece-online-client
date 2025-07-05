@@ -59,6 +59,7 @@ const menus: Menu[] = [
       { label: 'Meus Dados', to: '/my-data' },
       { label: 'Suporte', to: '/support' },
       { label: 'Trocar Senha', to: '/change-password' },
+      { label: 'Sair', to: '/' },
     ],
   },
   {

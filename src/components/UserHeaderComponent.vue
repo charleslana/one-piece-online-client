@@ -93,6 +93,7 @@ const menus: Menu[] = [
       { label: 'Meus dados', to: '/my-data' },
       { label: 'Notícias', to: '/news' },
       { label: 'Trocar senha', to: '/change-password' },
+      { label: 'Sair', to: '/' },
     ],
   },
   {
@@ -218,7 +219,7 @@ function checkMobile() {
   height: auto;
   min-height: 5.5rem;
   position: fixed;
-  z-index: 2;
+  z-index: 400;
   display: flex;
   flex-wrap: wrap;
   align-items: center;

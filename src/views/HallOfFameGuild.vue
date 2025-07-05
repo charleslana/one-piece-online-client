@@ -183,26 +183,6 @@ td {
   vertical-align: middle !important;
 }
 
-.profile-mask {
-  width: 130px;
-  height: 130px;
-  background: url('../assets/images/profile/portrait/profile-1.png');
-  display: inline-block;
-  position: relative;
-}
-
-.profile-mask img {
-  width: 120px;
-  height: 120px;
-  display: block;
-  margin: 0 auto;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 4px;
-}
-
 .table-loading-overlay {
   position: absolute;
   top: 0;
