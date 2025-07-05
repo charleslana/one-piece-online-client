@@ -126,3 +126,40 @@ a {
 .mt-8rem {
   margin-top: 8rem !important;
 }
+
+.profile-mask {
+  width: 130px;
+  height: 130px;
+  background: url('./assets/images/profile/portrait/profile-1.png');
+  display: inline-block;
+  position: relative;
+}
+
+.profile-mask img {
+  width: 120px;
+  height: 120px;
+  display: block;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-radius: 4px;
+}
+
+.character-bg {
+  width: 245px;
+  height: 290px;
+  background: url('./assets/images/profile/backgrounds/1.png') no-repeat;
+  position: relative;
+  margin: 0 auto;
+}
+
+.character-bg img {
+  object-fit: contain;
+  width: 224px;
+  position: absolute;
+  bottom: 3px;
+  left: 11px;
+  border-radius: 10px;
+}
