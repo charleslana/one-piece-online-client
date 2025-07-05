@@ -146,12 +146,14 @@
             </div>
           </div>
         </div>
+      </MainContainerComponent>
+      <div class="container" v-if="!success">
         <transition
           mode="out-in"
           enter-active-class="animate__animated animate__fadeIn animate__faster"
           leave-active-class="animate__animated animate__fadeOut animate__faster"
         >
-          <div class="character-grid mt-6" :key="currentPage">
+          <div class="character-grid" :key="currentPage">
             <div
               v-for="char in paginatedCharacters"
               :key="char.id"
@@ -184,7 +186,7 @@
             </li>
           </ul>
         </nav>
-      </MainContainerComponent>
+      </div>
     </div>
     <FooterComponent />
   </main>
@@ -333,12 +335,6 @@ label {
   justify-content: center;
 }
 
-.character-item.is-selected {
-  opacity: 1;
-  border: 2px solid #ffffff;
-  background-color: #ffffff33;
-}
-
 .profile-mask {
   width: 130px;
   height: 130px;
@@ -362,8 +358,6 @@ label {
 
 .profile-mask img.is-selected {
   opacity: 1;
-  border: 2px solid #ffffff;
-  background-color: #ffffff33;
 }
 
 .pagination-link {
