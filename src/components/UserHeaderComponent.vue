@@ -25,7 +25,7 @@
         v-show="isMobile ? isOpen : true"
         class="is-active navbar-menu animate__animated animate__faster"
       >
-        <div class="navbar-start">
+        <div class="navbar-start is-justify-content-center">
           <div
             v-for="(menu, index) in menus"
             :key="index"
@@ -110,22 +110,12 @@ const menus: Menu[] = [
     items: [],
   },
   {
-    title: 'Avançado',
-    disabled: true,
-    items: [],
-  },
-  {
-    title: 'Missão atual',
+    title: 'Tesouro',
     disabled: true,
     items: [],
   },
   {
     title: 'Mar atual',
-    disabled: true,
-    items: [],
-  },
-  {
-    title: 'Hospital',
     disabled: true,
     items: [],
   },
@@ -140,12 +130,17 @@ const menus: Menu[] = [
     items: [],
   },
   {
-    title: 'Organização',
+    title: 'Tripulação',
     disabled: true,
     items: [],
   },
   {
     title: 'Ranking',
+    disabled: true,
+    items: [],
+  },
+  {
+    title: 'Info',
     disabled: true,
     items: [],
   },
@@ -300,6 +295,21 @@ function checkMobile() {
     background-color: #0d0f1d;
     z-index: 1000;
     padding: 1rem 1.5rem;
+  }
+}
+
+@media screen and (min-width: 1025px) {
+  .navbar-menu {
+    display: flex !important;
+    flex-wrap: wrap;
+  }
+
+  .navbar-start {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    justify-content: flex-start;
   }
 }
 </style>
