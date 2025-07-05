@@ -10,18 +10,18 @@
         </p>
         <p class="mt-3">
           Acesse os Hall da Fama de:
-          <RouterLink to="/hall-of-fame-team" class="link2">Equipe</RouterLink> e
+          <RouterLink to="/hall-of-fame-faction" class="link2">Facção</RouterLink> e
           <RouterLink to="/hall-of-fame" class="link2">Viajantes</RouterLink>
         </p>
       </InfoComponent>
       <div class="title is-3">Filtros do Hall da fama</div>
       <div class="columns mb-5">
         <div class="column is-5">
-          <label class="label is-small">Facção</label>
+          <label class="label is-small">Mar</label>
           <div class="select is-fullwidth is-medium">
-            <select class="is-shadowless" v-model="selectedFaction" :disabled="isFiltering">
-              <option v-for="f in factionOptions" :key="f.key" :value="f.key">
-                {{ f.label }}
+            <select class="is-shadowless" v-model="selectedSea" :disabled="isFiltering">
+              <option v-for="s in seaOptions" :key="s.key" :value="s.key">
+                {{ s.label }}
               </option>
             </select>
           </div>
@@ -59,7 +59,7 @@
               <th><abbr>Nome</abbr></th>
               <th><abbr>Nível</abbr></th>
               <th><abbr>Pontuação</abbr></th>
-              <th><abbr>Facção</abbr></th>
+              <th><abbr>Mar</abbr></th>
             </tr>
           </thead>
           <tbody>
@@ -68,7 +68,7 @@
               <td class="has-text-weight-bold">{{ entry.name }}</td>
               <td>{{ entry.level }}</td>
               <td>{{ formatNumber(entry.score) }}</td>
-              <td>{{ entry.faction }}</td>
+              <td>{{ entry.sea }}</td>
             </tr>
           </tbody>
         </table>
@@ -94,29 +94,30 @@ import { ref } from 'vue';
 
 interface RankingEntry {
   name: string;
-  faction: string;
+  sea: string;
   level: number;
   score: string;
 }
 
-type FactionKey = 'general' | 'marine' | 'pirate' | 'revolutionary';
+type SeaKey = 'general' | 'east-blue' | 'north-blue' | 'west-blue' | 'south-blue';
 type PositionValue = [number, number];
 
 const name = ref('One Piece Online');
 
-const factionOptions = [
+const seaOptions = [
   { key: 'general', label: 'Geral' },
-  { key: 'marine', label: 'Marinha' },
-  { key: 'pirate', label: 'Piratas' },
-  { key: 'revolutionary', label: 'Revolucionários' },
-] satisfies { key: FactionKey; label: string }[];
+  { key: 'east-blue', label: 'East Blue' },
+  { key: 'north-blue', label: 'North Blue' },
+  { key: 'west-blue', label: 'West Blue' },
+  { key: 'south-blue', label: 'South Blue' },
+] satisfies { key: SeaKey; label: string }[];
 
 const positionOptions = [
   { value: [1, 25], label: '1 até 25' },
   { value: [2, 25], label: '26 até 50' },
 ] satisfies { value: PositionValue; label: string }[];
 
-const selectedFaction = ref<FactionKey>('general');
+const selectedSea = ref<SeaKey>('general');
 const selectedPosition = ref<PositionValue>([1, 25]);
 
 const isFiltering = ref(false);
@@ -124,33 +125,39 @@ const isFiltering = ref(false);
 const rankingList = ref<RankingEntry[]>([
   {
     name: 'Rock Pirates',
-    faction: 'Pirata',
+    sea: 'East Blue',
     level: 10,
     score: '99999',
   },
   {
     name: 'Piratas Rocks',
-    faction: 'Marinha',
+    sea: 'East Blue',
     level: 12,
     score: '89400',
   },
   {
     name: 'Nove Bainhas',
-    faction: 'Revolucionário',
+    sea: 'North Blue',
     level: 15,
     score: '78700',
   },
   {
     name: 'Marine Ford',
-    faction: 'Marinha',
+    sea: 'West Blue',
     level: 8,
     score: '60000',
   },
   {
     name: 'Chapéus de palha',
-    faction: 'Pirata',
+    sea: 'South Blue',
     level: 7,
     score: '57000',
+  },
+  {
+    name: 'Chapéus de clone',
+    sea: 'South Blue',
+    level: 7,
+    score: '57001',
   },
 ]);
 
@@ -158,8 +165,8 @@ function applyFilters() {
   isFiltering.value = true;
 
   const payload = {
-    faction: selectedFaction.value, // 'marine', 'pirate', etc.
-    range: selectedPosition.value, // ex: [1, 25]
+    sea: selectedSea.value,
+    range: selectedPosition.value,
   };
 
   console.log('Enviando para backend:', payload);
@@ -167,7 +174,7 @@ function applyFilters() {
   setTimeout(() => {
     // Aqui você pode aplicar a lógica de filtro real
     // Exemplo:
-    // rankingList.value = originalList.filter(entry => entry.faction === selectedFaction.value);
+    // rankingList.value = originalList.filter(entry => entry.sea === selectedSea.value);
 
     // Apenas simulando uma nova referência
     rankingList.value = [...rankingList.value];

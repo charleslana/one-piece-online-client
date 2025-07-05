@@ -323,13 +323,6 @@ label {
   text-align-last: start;
 }
 
-.character-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 130px);
-  gap: 0.5rem;
-  justify-content: center;
-}
-
 .profile-mask img {
   opacity: 0.4;
 }

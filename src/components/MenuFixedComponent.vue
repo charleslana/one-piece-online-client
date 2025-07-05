@@ -56,6 +56,7 @@ const menus: Menu[] = [
   {
     title: 'Usuário',
     items: [
+      { label: 'Indique seus amigos', to: '/refer' },
       { label: 'Meus Dados', to: '/my-data' },
       { label: 'Suporte', to: '/support' },
       { label: 'Trocar Senha', to: '/change-password' },
