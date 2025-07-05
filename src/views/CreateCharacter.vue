@@ -26,7 +26,7 @@
             class="column is-one-quarter is-flex is-justify-content-center is-align-items-center"
           >
             <div>
-              <div class="create-character-bg">
+              <div class="character-bg">
                 <transition
                   mode="out-in"
                   enter-active-class="animate__animated animate__fadeIn animate__faster"
@@ -296,23 +296,6 @@ function createCharacter() {
 </script>
 
 <style lang="css" scoped>
-.create-character-bg {
-  width: 245px;
-  height: 290px;
-  background: url('../assets/images/profile/backgrounds/1.png') no-repeat;
-  position: relative;
-  margin: 0 auto;
-}
-
-.create-character-bg img {
-  object-fit: contain;
-  width: 224px;
-  position: absolute;
-  bottom: 3px;
-  left: 11px;
-  border-radius: 10px;
-}
-
 .sea-button {
   opacity: 0.5;
   transition: opacity 0.2s ease;
@@ -335,24 +318,7 @@ label {
   justify-content: center;
 }
 
-.profile-mask {
-  width: 130px;
-  height: 130px;
-  background: url('../assets/images/profile/portrait/profile-1.png');
-  display: inline-block;
-  position: relative;
-}
-
 .profile-mask img {
-  width: 120px;
-  height: 120px;
-  display: block;
-  margin: 0 auto;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  border-radius: 4px;
   opacity: 0.4;
 }
 
