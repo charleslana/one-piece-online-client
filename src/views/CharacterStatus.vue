@@ -1,6 +1,7 @@
 <template>
   <main class="page-container">
     <CharacterHeaderComponent />
+    <HeaderBackgroundComponent />
     <MenuFixedComponent />
     <div class="page-content mt-8rem">
       <div class="container">
@@ -15,6 +16,7 @@
 <script lang="ts" setup>
 import CharacterHeaderComponent from '@/components/CharacterHeaderComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
+import HeaderBackgroundComponent from '@/components/HeaderBackgroundComponent.vue';
 import MainContainerComponent from '@/components/MainContainerComponent.vue';
 import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
 </script>
