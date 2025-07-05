@@ -138,7 +138,13 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import MainContainerComponent from '@/components/MainContainerComponent.vue';
 import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
 import UserHeaderComponent from '@/components/UserHeaderComponent.vue';
-import { confirmDialog, formatNumber, getAvatarUrl, getCharacterUrl } from '@/utils/utils';
+import {
+  confirmDialog,
+  formatNumber,
+  getAvatarUrl,
+  getCharacterUrl,
+  showSuccess,
+} from '@/utils/utils';
 import { computed, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
@@ -233,6 +239,7 @@ function deleteCharacter() {
       setTimeout(() => {
         console.log(`deletou o id ${selectedCharacter.value?.id}`);
         isLoading.value = false;
+        showSuccess('Personagem deletado com sucesso.');
       }, 2000);
     },
   });
