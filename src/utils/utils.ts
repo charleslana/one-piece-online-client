@@ -38,6 +38,37 @@ export function alertError(title: string, text: string) {
   });
 }
 
+export async function confirmDialog({
+  title,
+  text,
+  confirmText = 'Confirmar',
+  cancelText = 'Cancelar',
+  onConfirm,
+}: {
+  title: string;
+  text: string;
+  confirmText?: string;
+  cancelText?: string;
+  onConfirm: () => void;
+}) {
+  const result_2 = await Swal.fire({
+    title,
+    text,
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: confirmText,
+    cancelButtonText: cancelText,
+    buttonsStyling: false,
+    customClass: {
+      confirmButton: 'button is-link',
+      cancelButton: 'button is-danger ml-2',
+    },
+  });
+  if (result_2.isConfirmed) {
+    onConfirm();
+  }
+}
+
 export function formatDate(dateInput: string | Date): string {
   const date = new Date(dateInput);
   if (isNaN(date.getTime())) return 'Data inválida';

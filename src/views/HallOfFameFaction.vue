@@ -3,7 +3,7 @@
     <HeaderComponent />
     <SectionLogoutComponent />
     <div class="page-content container">
-      <InfoComponent :icon="['fa', 'trophy']" title="Hall da fama equipes" image="info-1.png">
+      <InfoComponent :icon="['fa', 'trophy']" title="Hall da fama faccoes" image="info-1.png">
         <p>
           As memórias dos grandes piratas, revolucionários e marinheiros do {{ name }} estão
           guardadas aqui, para que possam sempre ser lembrados como os viajantes dos mares.
@@ -151,6 +151,12 @@ const rankingList = ref<RankingEntry[]>([
     faction: 'Pirata',
     level: 7,
     score: '57000',
+  },
+  {
+    name: 'palhas456',
+    faction: 'Pirata',
+    level: 7,
+    score: '57001',
   },
 ]);
 

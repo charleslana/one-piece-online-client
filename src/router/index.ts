@@ -15,7 +15,7 @@ import Contact from '@/views/Contact.vue';
 import LegalNotice from '@/views/LegalNotice.vue';
 import RecoveryPassword from '@/views/RecoveryPassword.vue';
 import HallOfFame from '@/views/HallOfFame.vue';
-import HallOfFameTeam from '@/views/HallOfFameTeam.vue';
+import HallOfFameFaction from '@/views/HallOfFameFaction.vue';
 import HallOfFameGuild from '@/views/HallOfFameGuild.vue';
 import SelectCharacter from '@/views/SelectCharacter.vue';
 import CreateCharacter from '@/views/CreateCharacter.vue';
@@ -80,9 +80,9 @@ const routes: Array<RouteRecordRaw> = [
     component: HallOfFame,
   },
   {
-    path: '/hall-of-fame-team',
-    name: 'hall-of-fame-team',
-    component: HallOfFameTeam,
+    path: '/hall-of-fame-faction',
+    name: 'hall-of-fame-faction',
+    component: HallOfFameFaction,
   },
   {
     path: '/hall-of-fame-guild',

@@ -135,7 +135,7 @@ const menus: Menu[] = [
     items: [],
   },
   {
-    title: 'Equipe',
+    title: 'Facção',
     disabled: true,
     items: [],
   },

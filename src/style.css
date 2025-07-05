@@ -127,6 +127,13 @@ a {
   margin-top: 8rem !important;
 }
 
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 130px);
+  gap: 0.5rem;
+  justify-content: center;
+}
+
 .profile-mask {
   width: 130px;
   height: 130px;
@@ -162,4 +169,16 @@ a {
   bottom: 3px;
   left: 11px;
   border-radius: 10px;
+}
+
+.is-orange {
+  color: #ee7221;
+}
+
+.is-gap-2 {
+  gap: 2rem;
+}
+
+.is-gap-3 {
+  gap: 3rem;
 }
