@@ -94,8 +94,12 @@
                 <p class="has-text-white is-size-5"><b>Personagem:</b> Monkey D. Luffy</p>
                 <p class="has-text-white is-size-5"><b>Versão:</b> Clássico</p>
                 <p class="has-text-white is-size-5"><b>Mar de origem:</b> {{ selectedSeaLabel }}</p>
-                <p class="has-text-white is-size-5"><b>Estatísticas:</b> 26%</p>
-                <p class="has-text-white is-size-5"><b>População:</b> 360.786</p>
+                <p class="has-text-white is-size-5">
+                  <b>Estatísticas:</b> {{ selectedSeaStatistics }}%
+                </p>
+                <p class="has-text-white is-size-5">
+                  <b>População:</b> {{ selectedSeaPopulation.toLocaleString() }}
+                </p>
               </div>
             </div>
           </div>
@@ -200,7 +204,13 @@ import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
 import UserHeaderComponent from '@/components/UserHeaderComponent.vue';
 import { alertError, getAvatarUrl, getCharacterUrl } from '@/utils/utils';
 import { computed, ref } from 'vue';
-// import { useRouter } from 'vue-router';
+
+interface SeaOption {
+  key: string;
+  label: string;
+  population: number;
+  statistics: number;
+}
 
 interface Option {
   key: string;
@@ -213,11 +223,10 @@ interface CharacterItem {
   avatar: string;
 }
 
-// const router = useRouter();
 const name = ref('One Piece Online');
 
 const characterName = ref('');
-const selectedSea = ref<Option['key']>('east-blue');
+const selectedSea = ref<SeaOption['key']>('east-blue');
 const selectedFaction = ref<Option['key']>('pirate');
 const selectedBreed = ref<Option['key']>('human');
 const selectedCharacterClass = ref<Option['key']>('fighter');
@@ -229,11 +238,11 @@ const selectedCharacter = ref<CharacterItem>({
 const isLoading = ref(false);
 const success = ref(false);
 
-const seas: Option[] = [
-  { key: 'east-blue', label: 'East Blue' },
-  { key: 'north-blue', label: 'North Blue' },
-  { key: 'west-blue', label: 'West Blue' },
-  { key: 'south-blue', label: 'South Blue' },
+const seas: SeaOption[] = [
+  { key: 'east-blue', label: 'East Blue', population: 360786, statistics: 20 },
+  { key: 'north-blue', label: 'North Blue', population: 489521, statistics: 31 },
+  { key: 'west-blue', label: 'West Blue', population: 287300, statistics: 21 },
+  { key: 'south-blue', label: 'South Blue', population: 392144, statistics: 28 },
 ];
 
 const factions: Option[] = [
@@ -272,9 +281,13 @@ const paginatedCharacters = computed(() => {
   return characters.slice(start, start + itemsPerPage);
 });
 
-const selectedSeaLabel = computed(() => {
-  return seas.find((s) => s.key === selectedSea.value)?.label || '';
+const selectedSeaData = computed(() => {
+  return seas.find((s) => s.key === selectedSea.value);
 });
+
+const selectedSeaLabel = computed(() => selectedSeaData.value?.label || '');
+const selectedSeaPopulation = computed(() => selectedSeaData.value?.population || 0);
+const selectedSeaStatistics = computed(() => selectedSeaData.value?.statistics || 0);
 
 function createCharacter() {
   if (!characterName.value.trim()) {
@@ -290,7 +303,6 @@ function createCharacter() {
     console.log(selectedFaction.value);
     success.value = true;
     window.scrollTo({ top: 0 });
-    // router.push('/select-character');
   }, 2000);
 }
 </script>
