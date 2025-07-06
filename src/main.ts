@@ -11,6 +11,7 @@ import 'bulma-modal-fx/dist/css/modal-fx.min.css';
 import 'animate.css';
 import 'sweetalert2/src/sweetalert2.scss';
 import 'floating-vue/dist/style.css';
+import 'vue-search-select/dist/VueSearchSelect.css';
 
 import {
   faUser,
