@@ -2,7 +2,7 @@
   <main class="page-container">
     <CharacterHeaderComponent />
     <HeaderBackgroundComponent />
-    <MenuFixedComponent />
+    <CharacterMenuFixedComponent />
     <div class="page-content">
       <div class="container">
         <CharacterStatusBarComponent />
@@ -18,11 +18,11 @@
 
 <script lang="ts" setup>
 import CharacterHeaderComponent from '@/components/CharacterHeaderComponent.vue';
+import CharacterMenuFixedComponent from '@/components/CharacterMenuFixedComponent.vue';
 import CharacterStatusBarComponent from '@/components/CharacterStatusBarComponent.vue';
 import FooterComponent from '@/components/FooterComponent.vue';
 import HeaderBackgroundComponent from '@/components/HeaderBackgroundComponent.vue';
 import MainContainerComponent from '@/components/MainContainerComponent.vue';
-import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
 </script>
 
 <style lang="css" scoped>

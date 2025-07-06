@@ -215,3 +215,8 @@ a {
 .span {
   color: #637ea0;
 }
+
+.ui.dropdown:not(.button) > .default.text,
+.ui.default.dropdown:not(.button) > .text {
+  color: #737373de !important;
+}
