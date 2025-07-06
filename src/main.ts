@@ -3,12 +3,14 @@ import './style.css';
 import App from './App.vue';
 import pinia from './store';
 import router from './router';
+import { Dropdown, Tooltip, vTooltip } from 'floating-vue';
 
 import 'bulma/css/bulma.css';
 import 'rpg-awesome/css/rpg-awesome.min.css';
 import 'bulma-modal-fx/dist/css/modal-fx.min.css';
 import 'animate.css';
 import 'sweetalert2/src/sweetalert2.scss';
+import 'floating-vue/dist/style.css';
 
 import {
   faUser,
@@ -59,5 +61,9 @@ app.use(pinia);
 app.use(router);
 
 app.component('font-awesome-icon', FontAwesomeIcon);
+
+app.directive('tooltip', vTooltip);
+app.component('VTooltip', Tooltip);
+app.component('VDropdown', Dropdown);
 
 app.mount('#app');

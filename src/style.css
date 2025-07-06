@@ -182,3 +182,36 @@ a {
 .is-gap-3 {
   gap: 3rem;
 }
+
+.v-popper__wrapper {
+  color: #fff;
+  border: 1px solid rgba(43, 131, 119, 0.85);
+  background-color: rgb(18, 18, 18, 0.95) !important;
+  border-radius: 0.3rem !important;
+}
+
+.v-popper__inner {
+  color: #fff !important;
+  background-color: rgb(18, 18, 18, 0.95) !important;
+  border: none !important;
+}
+
+.v-popper__arrow-outer {
+  border-color: rgba(43, 131, 119, 0.85) !important;
+}
+
+.v-popper__arrow-inner {
+  border-color: rgb(18, 18, 18, 0.95) !important;
+}
+
+.is-green {
+  color: #3b9d01 !important;
+}
+
+.is-blue {
+  color: #007bff !important;
+}
+
+.span {
+  color: #637ea0;
+}
