@@ -9,7 +9,11 @@
     enter-active-class="animate__animated animate__slideInLeft"
     leave-active-class="animate__animated animate__slideOutLeft"
   >
-    <div v-show="!isHidden" class="menu-fixed-wrapper animate__animated animate__faster">
+    <div
+      v-show="!isHidden"
+      class="menu-fixed-wrapper animate__animated animate__faster"
+      ref="menuWrapperRef"
+    >
       <span class="menu-fixed-close" @click="closeMenu">
         <font-awesome-icon :icon="['fa', 'angle-left']" color="white" size="2x" />
       </span>
@@ -35,7 +39,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
+import { nextTick, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 interface SubMenu {
@@ -83,13 +87,16 @@ const menus: Menu[] = [
 ];
 
 let scrollPosition = 0;
+const menuWrapperRef = ref<HTMLElement | null>(null);
 
-watch(isHidden, (hidden) => {
+watch(isHidden, async (hidden) => {
   if (!hidden) {
     scrollPosition = window.scrollY;
     document.body.style.position = 'fixed';
     document.body.style.top = `-${scrollPosition}px`;
     document.body.style.width = '100%';
+    await nextTick();
+    menuWrapperRef.value?.scrollTo({ top: 0 });
   } else {
     document.body.style.position = '';
     document.body.style.top = '';
