@@ -26,6 +26,10 @@ export function alertSuccess(title: string, text: string) {
     icon: 'success',
     title,
     text,
+    customClass: {
+      confirmButton: 'button is-link',
+    },
+    buttonsStyling: false,
   });
 }
 
@@ -35,6 +39,10 @@ export function alertError(title: string, text: string) {
     icon: 'error',
     title,
     text,
+    customClass: {
+      confirmButton: 'button is-link',
+    },
+    buttonsStyling: false,
   });
 }
 
