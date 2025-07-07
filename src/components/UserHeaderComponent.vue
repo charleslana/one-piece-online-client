@@ -214,7 +214,7 @@ function checkMobile() {
   height: auto;
   min-height: 5.5rem;
   position: fixed;
-  z-index: 400;
+  z-index: 35;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -279,7 +279,7 @@ function checkMobile() {
     left: 0;
     right: 0;
     height: 5.5rem;
-    z-index: 1100;
+    z-index: 37;
     background: rgb(0, 23, 71, 0.8);
     padding: 1rem 1rem;
     display: block;
@@ -293,7 +293,7 @@ function checkMobile() {
     right: 0;
     overflow-y: auto;
     background-color: #0d0f1d;
-    z-index: 1000;
+    z-index: 36;
     padding: 1rem 1.5rem;
   }
 }

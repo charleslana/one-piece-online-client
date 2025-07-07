@@ -42,7 +42,9 @@
               </div>
               <div class="field is-grouped mt-5">
                 <p class="control">
-                  <button class="button is-primary is-responsive">Veja mais imagens</button>
+                  <button class="button is-primary is-responsive" @click="openModal">
+                    Veja mais imagens
+                  </button>
                 </p>
                 <p class="control">
                   <button
@@ -194,6 +196,7 @@
     </div>
     <FooterComponent />
   </main>
+  <ModalCharacterImagesComponent :active="isModal" @close="closeModal" />
 </template>
 
 <script lang="ts" setup>
@@ -201,6 +204,7 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import InfoComponent from '@/components/InfoComponent.vue';
 import MainContainerComponent from '@/components/MainContainerComponent.vue';
 import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
+import ModalCharacterImagesComponent from '@/components/ModalCharacterImagesComponent.vue';
 import UserHeaderComponent from '@/components/UserHeaderComponent.vue';
 import { alertError, getAvatarUrl, getCharacterUrl } from '@/utils/utils';
 import { computed, ref } from 'vue';
@@ -237,6 +241,7 @@ const selectedCharacter = ref<CharacterItem>({
 });
 const isLoading = ref(false);
 const success = ref(false);
+const isModal = ref(false);
 
 const seas: SeaOption[] = [
   { key: 'east-blue', label: 'East Blue', population: 360786, statistics: 20 },
@@ -288,6 +293,14 @@ const selectedSeaData = computed(() => {
 const selectedSeaLabel = computed(() => selectedSeaData.value?.label || '');
 const selectedSeaPopulation = computed(() => selectedSeaData.value?.population || 0);
 const selectedSeaStatistics = computed(() => selectedSeaData.value?.statistics || 0);
+
+function openModal() {
+  isModal.value = true;
+}
+
+function closeModal() {
+  isModal.value = false;
+}
 
 function createCharacter() {
   if (!characterName.value.trim()) {
