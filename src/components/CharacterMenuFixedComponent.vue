@@ -4,7 +4,7 @@
       <font-awesome-icon :icon="['fa', 'chevron-right']" />
     </span>
   </div>
-
+  <div v-if="!isHidden" class="menu-fixed-backdrop" @click="closeMenu"></div>
   <transition
     enter-active-class="animate__animated animate__slideInLeft"
     leave-active-class="animate__animated animate__slideOutLeft"
@@ -13,7 +13,10 @@
       <span class="menu-fixed-close" @click="closeMenu">
         <font-awesome-icon :icon="['fa', 'angle-left']" color="white" size="2x" />
       </span>
-      <div class="character-bg">
+      <div
+        class="character-bg"
+        :style="{ backgroundImage: `url('${getCharacterBackgroundUrl('1.png')}')` }"
+      >
         <img :src="getCharacterUrl('1', '1.png')" alt="character image" />
       </div>
       <p class="mt-1 is-size-4 name">Nome_personagem</p>
@@ -21,8 +24,8 @@
         <img src="../assets/images/icons/bag-character.png" alt="icon image" class="bag" />
       </div>
       <div class="mt-3">
-        <button class="button is-link mb-3">Trocar Imagem</button>
-        <button class="button is-info mb-3">Trocar Fundo</button>
+        <button class="button is-link mb-3" @click="openProfileModal">Trocar Imagem</button>
+        <button class="button is-info mb-3" @click="openBackgroundModal">Trocar Fundo</button>
       </div>
       <div class="mt-3">
         <p>Título:</p>
@@ -49,12 +52,16 @@
       </div>
     </div>
   </transition>
+  <ModalCharacterBackgroundComponent :active="isBackgroundModal" @close="closeBackgroundModal" />
+  <ModalCharacterProfileComponent :active="isProfileModal" @close="closeProfileModal" />
 </template>
 
 <script lang="ts" setup>
-import { formatNumber, getCharacterUrl } from '@/utils/utils';
+import { formatNumber, getCharacterBackgroundUrl, getCharacterUrl } from '@/utils/utils';
 import { ref, watch } from 'vue';
 import { ModelSelect } from 'vue-search-select';
+import ModalCharacterBackgroundComponent from './ModalCharacterBackgroundComponent.vue';
+import ModalCharacterProfileComponent from './ModalCharacterProfileComponent.vue';
 
 interface SearchSelect {
   value: string;
@@ -72,6 +79,8 @@ const searchText = ref('');
 const isDisabled = ref(false);
 
 const isHidden = ref(true);
+const isBackgroundModal = ref(false);
+const isProfileModal = ref(false);
 
 let scrollPosition = 0;
 
@@ -106,6 +115,22 @@ function search(text: string): void {
 function handleSelectItem(selectedItem: SearchSelect): void {
   console.log('Selected item:', selectedItem);
 }
+
+function openBackgroundModal() {
+  isBackgroundModal.value = true;
+}
+
+function closeBackgroundModal() {
+  isBackgroundModal.value = false;
+}
+
+function openProfileModal() {
+  isProfileModal.value = true;
+}
+
+function closeProfileModal() {
+  isProfileModal.value = false;
+}
 </script>
 
 <style scoped>
@@ -127,7 +152,7 @@ function handleSelectItem(selectedItem: SearchSelect): void {
 .menu-fixed-wrapper {
   background: #0d0f1d;
   position: fixed;
-  z-index: 500;
+  z-index: 38;
   top: 88px;
   bottom: 0;
   left: 0;
@@ -143,7 +168,7 @@ function handleSelectItem(selectedItem: SearchSelect): void {
   position: absolute;
   right: 1rem;
   top: 1rem;
-  z-index: 4000;
+  z-index: 39;
   cursor: pointer;
 }
 
@@ -181,5 +206,15 @@ function handleSelectItem(selectedItem: SearchSelect): void {
   width: 40px;
   border: 2px solid #4395ff;
   cursor: pointer;
+}
+
+.menu-fixed-backdrop {
+  position: fixed;
+  z-index: 37;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
 }
 </style>
