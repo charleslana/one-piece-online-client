@@ -4,7 +4,7 @@
       <font-awesome-icon :icon="['fa', 'chevron-right']" />
     </span>
   </div>
-
+  <div v-if="!isHidden" class="menu-fixed-backdrop" @click="closeMenu"></div>
   <transition
     enter-active-class="animate__animated animate__slideInLeft"
     leave-active-class="animate__animated animate__slideOutLeft"
@@ -126,7 +126,7 @@ function closeMenu() {
 .menu-fixed-wrapper {
   background: #0d0f1d;
   position: fixed;
-  z-index: 500;
+  z-index: 38;
   top: 88px;
   bottom: 0;
   left: 0;
@@ -141,7 +141,7 @@ function closeMenu() {
   position: absolute;
   right: 1rem;
   top: 1rem;
-  z-index: 4000;
+  z-index: 39;
   cursor: pointer;
 }
 
@@ -187,5 +187,15 @@ ul {
   .menu-fixed-wrapper {
     width: 80vw;
   }
+}
+
+.menu-fixed-backdrop {
+  position: fixed;
+  z-index: 37;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
 }
 </style>

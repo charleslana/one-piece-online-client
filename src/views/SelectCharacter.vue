@@ -9,7 +9,12 @@
       <MainContainerComponent>
         <div class="columns is-multiline is-vcentered">
           <div class="column is-one-third is-flex is-justify-content-center is-align-items-center">
-            <div class="character-bg">
+            <div
+              class="character-bg"
+              :style="{
+                backgroundImage: `url('${getCharacterBackgroundUrl(selectedCharacter.characterProfile)}')`,
+              }"
+            >
               <transition
                 mode="out-in"
                 enter-active-class="animate__animated animate__fadeIn animate__faster"
@@ -77,7 +82,12 @@
           </div>
         </div>
         <div class="buttons is-justify-content-center">
-          <button class="button is-link is-medium" @click="playCharacter" :disabled="isLoading">
+          <button
+            class="button is-link is-medium"
+            @click="playCharacter"
+            :class="{ 'is-loading': isLoading }"
+            :disabled="isLoading"
+          >
             Jogar
           </button>
           <button
@@ -101,6 +111,9 @@
               v-for="char in paginatedCharacters"
               :key="char.id"
               class="profile-mask"
+              :style="{
+                backgroundImage: `url('${getCharacterPortraitUrl(char.characterProfile)}')`,
+              }"
               @click="selectedCharacter = char"
             >
               <img
@@ -142,6 +155,8 @@ import {
   confirmDialog,
   formatNumber,
   getAvatarUrl,
+  getCharacterBackgroundUrl,
+  getCharacterPortraitUrl,
   getCharacterUrl,
   showSuccess,
 } from '@/utils/utils';
@@ -160,6 +175,7 @@ interface CharacterItem {
   heart: string;
   energy: string;
   stamina: string;
+  characterProfile: string;
 }
 
 interface Attribute {
@@ -182,6 +198,7 @@ const selectedCharacter = ref<CharacterItem>({
   heart: '100',
   energy: '100',
   stamina: '100',
+  characterProfile: '1.png',
 });
 
 const attributes = computed<Attribute[]>(() => {
@@ -209,6 +226,7 @@ const characters: CharacterItem[] = Array.from({ length: 10 }, (_, i) => {
     heart: '150',
     energy: '98',
     stamina: '72',
+    characterProfile: '3.png',
   };
 });
 
@@ -245,8 +263,10 @@ function deleteCharacter() {
   });
 }
 
-function playCharacter() {
+async function playCharacter() {
   console.log(`jogando com o id ${selectedCharacter.value?.id}`);
+  isLoading.value = true;
+  await new Promise((resolve) => setTimeout(resolve, 0));
   router.push('/character-status');
 }
 </script>

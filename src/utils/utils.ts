@@ -77,6 +77,44 @@ export async function confirmDialog({
   }
 }
 
+export async function confirmDialogWithLoading({
+  title,
+  text,
+  confirmText = 'Confirmar',
+  cancelText = 'Cancelar',
+  onConfirm,
+}: {
+  title: string;
+  text: string;
+  confirmText?: string;
+  cancelText?: string;
+  onConfirm: () => Promise<void> | void;
+}) {
+  await Swal.fire({
+    title,
+    text,
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: confirmText,
+    cancelButtonText: cancelText,
+    buttonsStyling: false,
+    customClass: {
+      confirmButton: 'button is-link',
+      cancelButton: 'button is-danger ml-2',
+    },
+    allowOutsideClick: false,
+    preConfirm: async () => {
+      Swal.showLoading();
+      try {
+        await onConfirm();
+      } catch (e) {
+        Swal.showValidationMessage('Erro ao confirmar');
+        console.error(e);
+      }
+    },
+  });
+}
+
 export function formatDate(dateInput: string | Date): string {
   const date = new Date(dateInput);
   if (isNaN(date.getTime())) return 'Data inválida';
@@ -119,4 +157,12 @@ export function getAvatarUrl(character: string, fileName: string): string {
 
 export function getCharacterUrl(character: string, fileName: string): string {
   return new URL(`../assets/images/characters/${character}/${fileName}`, import.meta.url).href;
+}
+
+export function getCharacterBackgroundUrl(fileName: string): string {
+  return new URL(`../assets/images/profile/backgrounds/${fileName}`, import.meta.url).href;
+}
+
+export function getCharacterPortraitUrl(fileName: string): string {
+  return new URL(`../assets/images/profile/portrait/${fileName}`, import.meta.url).href;
 }
