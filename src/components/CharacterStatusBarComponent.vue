@@ -185,7 +185,7 @@
         :triggers="['click']"
         :autoHide="true"
         :delay="{ show: 100, hide: 100 }"
-        :popperTriggers="['click', 'touch']"
+        @hide="forceBlurPopper"
       >
         <template #default>
           <div class="is-relative is-clickable">
@@ -203,6 +203,8 @@
                 placement="bottom"
                 :delay="100"
                 :triggers="['hover', 'click']"
+                :popperTriggers="['click', 'touch']"
+                @click.stop.prevent="useItem"
               >
                 <template #default>
                   <div class="item-bg">
@@ -230,6 +232,7 @@
         </template>
       </VDropdown>
     </footer>
+    <ScreenLockComponent :active="isLocked" />
   </div>
 </template>
 
@@ -238,6 +241,7 @@ import { ref, computed } from 'vue';
 import { useIntervalFn } from '@vueuse/core';
 import { formatNumber, getIconUrl, getItemUrl } from '@/utils/utils';
 import formatCountdown from '@/utils/countdown-utils';
+import ScreenLockComponent from './ScreenLockComponent.vue';
 
 interface ItemData {
   image: string;
@@ -293,6 +297,8 @@ const items = ref<ItemData[]>([
   },
 ]);
 
+const isLocked = ref(false);
+
 const lifeInitialSeconds = 1 * 1 * 3600;
 const lifeSecondsLeft = ref(lifeInitialSeconds);
 
@@ -327,6 +333,19 @@ const { pause, resume } = useIntervalFn(() => {
 const lifeFormattedCountdown = computed(() => formatCountdown(lifeSecondsLeft.value));
 const energyFormattedCountdown = computed(() => formatCountdown(energySecondsLeft.value));
 const staminaFormattedCountdown = computed(() => formatCountdown(staminaSecondsLeft.value));
+
+async function useItem() {
+  isLocked.value = true;
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  isLocked.value = false;
+}
+
+function forceBlurPopper() {
+  const focused = document.activeElement as HTMLElement | null;
+  if (focused && focused.closest('.v-popper__popper')) {
+    focused.blur();
+  }
+}
 </script>
 
 <style scoped>

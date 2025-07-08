@@ -29,7 +29,7 @@
         :triggers="['click']"
         :autoHide="true"
         :delay="{ show: 100, hide: 100 }"
-        :popperTriggers="['click', 'touch']"
+        @hide="forceBlurPopper"
       >
         <template #default>
           <div class="mt-5">
@@ -243,6 +243,13 @@ function openProfileModal() {
 
 function closeProfileModal() {
   isProfileModal.value = false;
+}
+
+function forceBlurPopper() {
+  const focused = document.activeElement as HTMLElement | null;
+  if (focused && focused.closest('.v-popper__popper')) {
+    focused.blur();
+  }
 }
 </script>
 
