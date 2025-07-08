@@ -180,9 +180,55 @@
           <div>Sua moeda berry.</div>
         </template>
       </VTooltip>
-      <div class="is-relative">
-        <img src="../assets/images/icons/bag.png" alt="icon image" width="50" height="50" />
-      </div>
+      <VDropdown
+        placement="bottom"
+        :triggers="['click']"
+        :autoHide="true"
+        :delay="{ show: 100, hide: 100 }"
+        :popperTriggers="['click', 'touch']"
+      >
+        <template #default>
+          <div class="is-relative is-clickable">
+            <img src="../assets/images/icons/bag.png" alt="icon image" width="50" height="50" />
+          </div>
+        </template>
+
+        <template #popper>
+          <div class="p-3">
+            <p>Itens de regeneração</p>
+            <div class="is-flex mt-2">
+              <VTooltip
+                v-for="(item, index) in items"
+                :key="index"
+                placement="bottom"
+                :delay="100"
+                :triggers="['hover', 'click']"
+              >
+                <template #default>
+                  <div class="item-bg">
+                    <img :src="item.image" alt="item image" />
+                    <div class="item-quantity">x{{ item.quantity }}</div>
+                  </div>
+                </template>
+                <template #popper>
+                  <div class="is-blue has-text-weight-bold">{{ item.name }}</div>
+                  <div class="is-size-7">{{ item.description }}</div>
+                  <div class="mt-2 is-flex is-flex-direction-column is-gap-2">
+                    <div
+                      class="is-flex is-gap-2 is-align-items-center"
+                      v-for="(desc, idx) in item.iconDescriptions"
+                      :key="idx"
+                    >
+                      <img :src="desc.icon" alt="icon image" class="item-image" />
+                      <span>{{ desc.description }}</span>
+                    </div>
+                  </div>
+                </template>
+              </VTooltip>
+            </div>
+          </div>
+        </template>
+      </VDropdown>
     </footer>
   </div>
 </template>
@@ -190,8 +236,62 @@
 <script lang="ts" setup>
 import { ref, computed } from 'vue';
 import { useIntervalFn } from '@vueuse/core';
-import { formatNumber } from '@/utils/utils';
+import { formatNumber, getIconUrl, getItemUrl } from '@/utils/utils';
 import formatCountdown from '@/utils/countdown-utils';
+
+interface ItemData {
+  image: string;
+  name: string;
+  description: string;
+  quantity: number;
+  iconDescriptions: {
+    icon: string;
+    description: string;
+  }[];
+}
+
+const items = ref<ItemData[]>([
+  {
+    image: getItemUrl('1.png'),
+    name: 'Seafood',
+    description: 'Comida de regeneração.',
+    quantity: 5,
+    iconDescriptions: [
+      {
+        icon: getIconUrl('heart.png'),
+        description: 'Recupera 100 pontos de vida.',
+      },
+      {
+        icon: getIconUrl('energy.png'),
+        description: 'Recupera 100 pontos de energia.',
+      },
+      {
+        icon: getIconUrl('stamina.png'),
+        description: 'Recupera 100 pontos de stamina.',
+      },
+    ],
+  },
+  {
+    image: getItemUrl('2.png'),
+    name: 'Takoyaki',
+    description: 'Comida de regeneração.',
+    quantity: 1,
+    iconDescriptions: [
+      {
+        icon: getIconUrl('heart.png'),
+        description: 'Recupera 200 pontos de vida.',
+      },
+      {
+        icon: getIconUrl('energy.png'),
+        description: 'Recupera 200 pontos de energia.',
+      },
+      {
+        icon: getIconUrl('stamina.png'),
+        description: 'Recupera 200 pontos de stamina.',
+      },
+    ],
+  },
+]);
 
 const lifeInitialSeconds = 1 * 1 * 3600;
 const lifeSecondsLeft = ref(lifeInitialSeconds);

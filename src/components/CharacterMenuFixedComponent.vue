@@ -24,9 +24,55 @@
         <img :src="getCharacterUrl('1', '1.png')" alt="character image" />
       </div>
       <p class="mt-1 is-size-4 name">Nome_personagem</p>
-      <div class="mt-5">
-        <img src="../assets/images/icons/bag-character.png" alt="icon image" class="bag" />
-      </div>
+      <VDropdown
+        placement="bottom"
+        :triggers="['click']"
+        :autoHide="true"
+        :delay="{ show: 100, hide: 100 }"
+        :popperTriggers="['click', 'touch']"
+      >
+        <template #default>
+          <div class="mt-5">
+            <img src="../assets/images/icons/bag-character.png" alt="icon image" class="bag" />
+          </div>
+        </template>
+
+        <template #popper>
+          <div class="p-3">
+            <p>Itens de regeneração</p>
+            <div class="is-flex mt-2">
+              <VTooltip
+                v-for="(item, index) in items"
+                :key="index"
+                placement="bottom"
+                :delay="100"
+                :triggers="['hover', 'click']"
+              >
+                <template #default>
+                  <div class="item-bg">
+                    <img :src="item.image" alt="item image" />
+                    <div class="item-quantity">x{{ item.quantity }}</div>
+                  </div>
+                </template>
+                <template #popper>
+                  <div class="is-blue has-text-weight-bold">{{ item.name }}</div>
+                  <div class="is-size-7">{{ item.description }}</div>
+                  <div class="mt-2 is-flex is-flex-direction-column is-gap-2">
+                    <div
+                      class="is-flex is-gap-2 is-align-items-center"
+                      v-for="(desc, idx) in item.iconDescriptions"
+                      :key="idx"
+                    >
+                      <img :src="desc.icon" alt="icon image" class="item-image" />
+                      <span>{{ desc.description }}</span>
+                    </div>
+                  </div>
+                </template>
+              </VTooltip>
+            </div>
+          </div>
+        </template>
+      </VDropdown>
       <div class="mt-3">
         <button class="button is-link mb-3" @click="openProfileModal">Trocar Imagem</button>
         <button class="button is-info mb-3" @click="openBackgroundModal">Trocar Fundo</button>
@@ -61,7 +107,13 @@
 </template>
 
 <script lang="ts" setup>
-import { formatNumber, getCharacterBackgroundUrl, getCharacterUrl } from '@/utils/utils';
+import {
+  formatNumber,
+  getCharacterBackgroundUrl,
+  getCharacterUrl,
+  getIconUrl,
+  getItemUrl,
+} from '@/utils/utils';
 import { nextTick, ref, watch } from 'vue';
 import { ModelSelect } from 'vue-search-select';
 import ModalCharacterBackgroundComponent from './ModalCharacterBackgroundComponent.vue';
@@ -76,6 +128,60 @@ const options = ref<SearchSelect[]>([
   { value: '0', text: 'Nenhum(a)' },
   { value: '1', text: 'Axe-Hand' },
   { value: '2', text: 'Beheader' },
+]);
+
+interface ItemData {
+  image: string;
+  name: string;
+  description: string;
+  quantity: number;
+  iconDescriptions: {
+    icon: string;
+    description: string;
+  }[];
+}
+
+const items = ref<ItemData[]>([
+  {
+    image: getItemUrl('1.png'),
+    name: 'Seafood',
+    description: 'Comida de regeneração.',
+    quantity: 5,
+    iconDescriptions: [
+      {
+        icon: getIconUrl('heart.png'),
+        description: 'Recupera 100 pontos de vida.',
+      },
+      {
+        icon: getIconUrl('energy.png'),
+        description: 'Recupera 100 pontos de energia.',
+      },
+      {
+        icon: getIconUrl('stamina.png'),
+        description: 'Recupera 100 pontos de stamina.',
+      },
+    ],
+  },
+  {
+    image: getItemUrl('2.png'),
+    name: 'Takoyaki',
+    description: 'Comida de regeneração.',
+    quantity: 1,
+    iconDescriptions: [
+      {
+        icon: getIconUrl('heart.png'),
+        description: 'Recupera 200 pontos de vida.',
+      },
+      {
+        icon: getIconUrl('energy.png'),
+        description: 'Recupera 200 pontos de energia.',
+      },
+      {
+        icon: getIconUrl('stamina.png'),
+        description: 'Recupera 200 pontos de stamina.',
+      },
+    ],
+  },
 ]);
 
 const item = ref<SearchSelect>();
