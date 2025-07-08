@@ -166,3 +166,11 @@ export function getCharacterBackgroundUrl(fileName: string): string {
 export function getCharacterPortraitUrl(fileName: string): string {
   return new URL(`../assets/images/profile/portrait/${fileName}`, import.meta.url).href;
 }
+
+export function getIconUrl(fileName: string): string {
+  return new URL(`../assets/images/icons/${fileName}`, import.meta.url).href;
+}
+
+export function getItemUrl(fileName: string): string {
+  return new URL(`../assets/images/items/${fileName}`, import.meta.url).href;
+}

@@ -175,6 +175,10 @@ a {
   color: #ee7221;
 }
 
+.is-gap-1 {
+  gap: 1rem;
+}
+
 .is-gap-2 {
   gap: 2rem;
 }
@@ -219,4 +223,35 @@ a {
 .ui.dropdown:not(.button) > .default.text,
 .ui.default.dropdown:not(.button) > .text {
   color: #737373de !important;
+}
+
+.item-bg {
+  border: solid 1px #333;
+  margin: 1px;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+
+.item-bg img {
+  border: 2px solid #4395ff;
+  border-radius: 25px;
+  width: 40px;
+  object-fit: contain;
+}
+
+.item-quantity {
+  background-color: #333;
+  color: #fff;
+  font-size: 9px;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  padding: 2px;
+}
+
+.item-image {
+  border: 2px solid #4395ff;
+  border-radius: 25px;
+  width: 40px;
 }
