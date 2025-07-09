@@ -206,8 +206,11 @@ import MainContainerComponent from '@/components/MainContainerComponent.vue';
 import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
 import ModalCharacterImagesComponent from '@/components/ModalCharacterImagesComponent.vue';
 import UserHeaderComponent from '@/components/UserHeaderComponent.vue';
-import { alertError, getAvatarUrl, getCharacterUrl } from '@/utils/utils';
-import { computed, ref } from 'vue';
+import type { Character } from '@/interfaces/character';
+import CharacterService from '@/services/character-service';
+import { getError } from '@/utils/api-utils';
+import { alertError, getAvatarUrl, getCharacterUrl, showError } from '@/utils/utils';
+import { computed, onMounted, ref } from 'vue';
 
 interface SeaOption {
   key: string;
@@ -221,11 +224,12 @@ interface Option {
   label: string;
 }
 
-interface CharacterItem {
-  id: number;
-  character: string;
-  avatar: string;
-}
+onMounted(async () => {
+  await asyncGetAllCharacters();
+  if (characters.value.length > 0) {
+    selectedCharacter.value = characters.value[0];
+  }
+});
 
 const name = ref('One Piece Online');
 
@@ -234,11 +238,7 @@ const selectedSea = ref<SeaOption['key']>('east-blue');
 const selectedFaction = ref<Option['key']>('pirate');
 const selectedBreed = ref<Option['key']>('human');
 const selectedCharacterClass = ref<Option['key']>('fighter');
-const selectedCharacter = ref<CharacterItem>({
-  id: 1,
-  character: '1',
-  avatar: '1.png',
-});
+const selectedCharacter = ref<Character>();
 const isLoading = ref(false);
 const success = ref(false);
 const isModal = ref(false);
@@ -270,20 +270,22 @@ const characterClasses: Option[] = [
   { key: 'shooter', label: 'Atirador' },
 ];
 
-const characters: CharacterItem[] = Array.from({ length: 100 }, (_, i) => ({
-  id: i + 1,
-  character: '1',
-  avatar: '1.png',
-}));
+// const characters: CharacterItem[] = Array.from({ length: 1000 }, (_, i) => ({
+//   id: i + 1,
+//   character: '1',
+//   avatar: '1.png',
+// }));
+
+const characters = ref<Character[]>([]);
 
 const currentPage = ref(1);
 const itemsPerPage = 16;
 
-const totalPages = computed(() => Math.ceil(characters.length / itemsPerPage));
+const totalPages = computed(() => Math.ceil(characters.value.length / itemsPerPage));
 
 const paginatedCharacters = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage;
-  return characters.slice(start, start + itemsPerPage);
+  return characters.value.slice(start, start + itemsPerPage);
 });
 
 const selectedSeaData = computed(() => {
@@ -317,6 +319,19 @@ function createCharacter() {
     success.value = true;
     window.scrollTo({ top: 0 });
   }, 2000);
+}
+
+async function asyncGetAllCharacters(): Promise<void> {
+  isLoading.value = true;
+  try {
+    const allCharacters = await CharacterService.getAll();
+    characters.value = allCharacters;
+  } catch (e) {
+    const error = getError(e);
+    showError(error);
+  } finally {
+    isLoading.value = false;
+  }
 }
 </script>
 

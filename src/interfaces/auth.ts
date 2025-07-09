@@ -1,5 +1,7 @@
 export interface Auth {
-  auth: {
-    access_token: string;
-  };
+  access_token: string;
+}
+
+export interface AuthResponse {
+  auth: Auth;
 }
