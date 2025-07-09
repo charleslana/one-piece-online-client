@@ -151,6 +151,9 @@ import FooterComponent from '@/components/FooterComponent.vue';
 import MainContainerComponent from '@/components/MainContainerComponent.vue';
 import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
 import UserHeaderComponent from '@/components/UserHeaderComponent.vue';
+import type { UserCharacter } from '@/interfaces/user-character';
+import UserCharacterService from '@/services/user-character-service';
+import { getError } from '@/utils/api-utils';
 import {
   confirmDialog,
   formatNumber,
@@ -158,25 +161,16 @@ import {
   getCharacterBackgroundUrl,
   getCharacterPortraitUrl,
   getCharacterUrl,
+  getIconUrl,
+  showError,
   showSuccess,
 } from '@/utils/utils';
-import { computed, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useRouter } from 'vue-router';
 
-interface CharacterItem {
-  id: number;
-  character: string;
-  avatar: string;
-  name: string;
-  level: number;
-  faction: string;
-  berry: string;
-  sea: string;
-  heart: string;
-  energy: string;
-  stamina: string;
-  characterProfile: string;
-}
+onMounted(async () => {
+  await asyncGetAllUserCharacters();
+});
 
 interface Attribute {
   icon: string;
@@ -186,7 +180,7 @@ interface Attribute {
 
 const router = useRouter();
 
-const selectedCharacter = ref<CharacterItem>({
+const selectedCharacter = ref<UserCharacter>({
   id: 1,
   character: '1',
   avatar: '1.png',
@@ -209,42 +203,19 @@ const attributes = computed<Attribute[]>(() => {
   ];
 });
 
-const characters: CharacterItem[] = Array.from({ length: 10 }, (_, i) => {
-  if (i === 0) {
-    return { ...selectedCharacter.value };
-  }
-
-  return {
-    id: i + 1,
-    character: '1',
-    avatar: '1.png',
-    name: 'Nome_personagem2',
-    level: 2,
-    faction: 'Marine',
-    berry: '10000',
-    sea: 'North Blue',
-    heart: '150',
-    energy: '98',
-    stamina: '72',
-    characterProfile: '3.png',
-  };
-});
+const userCharacters = ref<UserCharacter[]>([]);
 
 const isLoading = ref(false);
 
 const currentPage = ref(1);
 const itemsPerPage = 16;
 
-const totalPages = computed(() => Math.ceil(characters.length / itemsPerPage));
+const totalPages = computed(() => Math.ceil(userCharacters.value.length / itemsPerPage));
 
 const paginatedCharacters = computed(() => {
   const start = (currentPage.value - 1) * itemsPerPage;
-  return characters.slice(start, start + itemsPerPage);
+  return userCharacters.value.slice(start, start + itemsPerPage);
 });
-
-function getIconUrl(fileName: string): string {
-  return new URL(`../assets/images/icons/${fileName}`, import.meta.url).href;
-}
 
 function deleteCharacter() {
   confirmDialog({
@@ -268,6 +239,19 @@ async function playCharacter() {
   isLoading.value = true;
   await new Promise((resolve) => setTimeout(resolve, 0));
   router.push('/character-status');
+}
+
+async function asyncGetAllUserCharacters(): Promise<void> {
+  isLoading.value = true;
+  try {
+    const allCharacters = await UserCharacterService.getAll();
+    userCharacters.value = allCharacters;
+  } catch (e) {
+    const error = getError(e);
+    showError(error);
+  } finally {
+    isLoading.value = false;
+  }
 }
 </script>
 

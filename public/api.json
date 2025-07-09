@@ -1,5 +1,346 @@
 {
   "auth": {
     "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDAwMDAwMDAsImV4cCI6MjAwMDAwMDAwMH0.dGVzdGVfc2lnbmF0dXJlX2ZpeGFkYQ"
-  }
+  },
+  "characters": [
+    {
+      "id": 1,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 2,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 3,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 4,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 5,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 6,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 7,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 8,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 9,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 10,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 11,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 12,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 13,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 14,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 15,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 16,
+      "character": "1",
+      "avatar": "1.png"
+    },
+    {
+      "id": 17,
+      "character": "1",
+      "avatar": "1.png"
+    }
+  ],
+  "userCharacters": [
+    {
+      "id": 1,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Monkey D. Luffy",
+      "level": 1,
+      "faction": "pirate",
+      "berry": "5000",
+      "sea": "East Blue",
+      "heart": "100",
+      "energy": "100",
+      "stamina": "100",
+      "characterProfile": "1.png"
+    },
+    {
+      "id": 2,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem2",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 3,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem3",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "2.png"
+    },
+    {
+      "id": 4,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem4",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 5,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem5",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 6,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem6",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 7,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem7",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 8,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem8",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 9,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem9",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 10,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem10",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 11,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem11",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 12,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem12",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 13,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem13",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 14,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem14",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 15,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem15",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 16,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem16",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 17,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem17",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    },
+    {
+      "id": 18,
+      "character": "1",
+      "avatar": "1.png",
+      "name": "Nome_personagem18",
+      "level": 2,
+      "faction": "marine",
+      "berry": "10000",
+      "sea": "North Blue",
+      "heart": "150",
+      "energy": "98",
+      "stamina": "72",
+      "characterProfile": "3.png"
+    }
+  ]
 }
