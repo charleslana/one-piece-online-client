@@ -47,6 +47,8 @@
                 placement="bottom"
                 :delay="100"
                 :triggers="['hover', 'click']"
+                :popperTriggers="['click', 'touch']"
+                @click.stop.prevent="useItem"
               >
                 <template #default>
                   <div class="item-bg">
@@ -104,6 +106,7 @@
   </transition>
   <ModalCharacterBackgroundComponent :active="isBackgroundModal" @close="closeBackgroundModal" />
   <ModalCharacterProfileComponent :active="isProfileModal" @close="closeProfileModal" />
+  <ScreenLockComponent :active="isLocked" :save-position="false" />
 </template>
 
 <script lang="ts" setup>
@@ -118,6 +121,7 @@ import { nextTick, ref, watch } from 'vue';
 import { ModelSelect } from 'vue-search-select';
 import ModalCharacterBackgroundComponent from './ModalCharacterBackgroundComponent.vue';
 import ModalCharacterProfileComponent from './ModalCharacterProfileComponent.vue';
+import ScreenLockComponent from './ScreenLockComponent.vue';
 
 interface SearchSelect {
   value: string;
@@ -187,6 +191,7 @@ const items = ref<ItemData[]>([
 const item = ref<SearchSelect>();
 const searchText = ref('');
 const isDisabled = ref(false);
+const isLocked = ref(false);
 
 const isHidden = ref(true);
 const isBackgroundModal = ref(false);
@@ -243,6 +248,12 @@ function openProfileModal() {
 
 function closeProfileModal() {
   isProfileModal.value = false;
+}
+
+async function useItem() {
+  isLocked.value = true;
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+  isLocked.value = false;
 }
 
 function forceBlurPopper() {
