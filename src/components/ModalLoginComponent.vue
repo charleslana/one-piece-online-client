@@ -56,6 +56,9 @@
 </template>
 
 <script lang="ts" setup>
+import AuthService from '@/services/auth-service';
+import { getError } from '@/utils/api-utils';
+import { saveAccessToken, saveCharacterCompleted } from '@/utils/local-storage-utils';
 import { showError } from '@/utils/utils';
 import { computed, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
@@ -114,17 +117,36 @@ async function handleSubmit() {
     return;
   }
 
-  isLoading.value = true;
+  await asyncLogin();
+}
 
-  setTimeout(() => {
+async function asyncLogin(): Promise<void> {
+  isLoading.value = true;
+  try {
+    const accessToken = await AuthService.login(email.value, password.value);
+    saveAccessToken(accessToken);
+    await asyncGetUserCharacter();
+  } catch (e) {
+    const error = getError(e);
+    showError(error);
     isLoading.value = false;
-    const error = false;
-    if (error) {
-      showError('E-mail ou senha inválidos!');
+  }
+}
+
+async function asyncGetUserCharacter(): Promise<void> {
+  try {
+    const response = await new Promise((resolve) => setTimeout(resolve, 0));
+    if (!response) {
+      router.push({ name: 'create-character', query: { access: 'true' } });
       return;
     }
+    saveCharacterCompleted();
     router.push('/select-character?access=true');
-  }, 2000);
+  } catch (e) {
+    const error = getError(e);
+    showError(error);
+    isLoading.value = false;
+  }
 }
 </script>
 
