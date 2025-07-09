@@ -7,9 +7,15 @@
 <script lang="ts" setup>
 import { watch } from 'vue';
 
-const props = defineProps<{
-  active: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    active: boolean;
+    savePosition?: boolean;
+  }>(),
+  {
+    savePosition: true,
+  }
+);
 
 let scrollPosition = 0;
 
@@ -17,15 +23,23 @@ watch(
   () => props.active,
   (newVal) => {
     if (newVal) {
-      scrollPosition = window.scrollY;
-      document.body.style.position = 'fixed';
-      document.body.style.top = `-${scrollPosition}px`;
-      document.body.style.width = '100%';
+      if (props.savePosition) {
+        scrollPosition = window.scrollY;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+      } else {
+        document.body.style.overflow = 'hidden';
+      }
     } else {
-      document.body.style.position = '';
-      document.body.style.top = '';
-      document.body.style.width = '';
-      window.scrollTo({ top: scrollPosition });
+      if (props.savePosition) {
+        document.body.style.position = '';
+        document.body.style.top = '';
+        document.body.style.width = '';
+        window.scrollTo({ top: scrollPosition });
+      } else {
+        document.body.style.overflow = '';
+      }
     }
   }
 );
