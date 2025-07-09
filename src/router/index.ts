@@ -153,7 +153,7 @@ const routes: Array<RouteRecordRaw> = [
     beforeEnter: (_to, _from, next) => {
       removeCharacterCompleted();
       removeAccessToken();
-      next({ name: 'login' });
+      next({ name: 'home' });
     },
   },
   {
@@ -195,7 +195,7 @@ router.beforeEach((to, _from, next) => {
   if (!isAuthenticated() && requiresAuth) {
     next({ name: 'home' });
   } else if (isAuthenticated() && isPublicPage) {
-    next({ name: 'character-status' });
+    next({ name: 'select-character', query: { access: 'true' } });
   } else {
     next();
   }

@@ -51,7 +51,7 @@
                 :key="i"
                 :to="item.to"
                 class="navbar-item"
-                :class="{ 'is-active': route.path === item.to }"
+                :class="{ 'is-active': route.fullPath === item.to }"
                 @click="closeMenu"
               >
                 {{ item.label }}
