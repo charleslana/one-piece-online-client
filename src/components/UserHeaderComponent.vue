@@ -93,15 +93,15 @@ const menus: Menu[] = [
       { label: 'Meus dados', to: '/my-data' },
       { label: 'Notícias', to: '/news' },
       { label: 'Trocar senha', to: '/change-password' },
-      { label: 'Sair', to: '/' },
+      { label: 'Sair', to: '/logout' },
     ],
   },
   {
     title: 'Personagem',
     disabled: false,
     items: [
-      { label: 'Selecionar', to: '/select-character' },
-      { label: 'Criar personagem', to: '/create-character' },
+      { label: 'Selecionar', to: '/select-character?access=true' },
+      { label: 'Criar personagem', to: '/create-character?access=true' },
     ],
   },
   {

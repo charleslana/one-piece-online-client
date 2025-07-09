@@ -64,14 +64,14 @@ const menus: Menu[] = [
       { label: 'Meus Dados', to: '/my-data' },
       { label: 'Suporte', to: '/support' },
       { label: 'Trocar Senha', to: '/change-password' },
-      { label: 'Sair', to: '/' },
+      { label: 'Sair', to: '/logout' },
     ],
   },
   {
     title: 'Personagem',
     items: [
-      { label: 'Selecionar', to: '/select-character' },
-      { label: 'Criar Personagem', to: '/create-character' },
+      { label: 'Selecionar', to: '/select-character?access=true' },
+      { label: 'Criar Personagem', to: '/create-character?access=true' },
     ],
   },
   {

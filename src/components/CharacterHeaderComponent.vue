@@ -100,15 +100,15 @@ const menus: Menu[] = [
     title: 'Usuário',
     disabled: false,
     items: [
-      { label: 'Criar personagem', to: '/create-character' },
+      { label: 'Criar personagem', to: '/create-character?access=true' },
       { label: 'Fórmulas do jogo', to: '/' },
       { label: 'Indique seus amigos', to: '/' },
       { label: 'Correio', to: '/' },
       { label: 'Meus dados', to: '/my-data' },
       { label: 'Notícias', to: '/news' },
       { label: 'Trocar senha', to: '/change-password' },
-      { label: 'Trocar personagem', to: '/select-character' },
-      { label: 'Sair', to: '/' },
+      { label: 'Trocar personagem', to: '/select-character?access=true' },
+      { label: 'Sair', to: '/logout' },
     ],
   },
   {

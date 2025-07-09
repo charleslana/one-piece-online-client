@@ -123,7 +123,7 @@ async function handleSubmit() {
       showError('E-mail ou senha inválidos!');
       return;
     }
-    router.push('/select-character');
+    router.push('/select-character?access=true');
   }, 2000);
 }
 </script>
