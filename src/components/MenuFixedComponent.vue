@@ -27,7 +27,7 @@
             <RouterLink
               :to="item.to"
               class="menu-link"
-              :class="{ 'has-text-weight-bold': route.path === item.to }"
+              :class="{ 'has-text-weight-bold': route.fullPath === item.to }"
             >
               {{ item.label }}
             </RouterLink>
