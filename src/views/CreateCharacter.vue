@@ -15,8 +15,8 @@
           <p>Parabéns você acaba de criar seu personagem no {{ name }}.</p>
           <p>
             Comece agora mesmo seu treinamento
-            <RouterLink to="/select-character" class="link3">clicando aqui</RouterLink> e selecione
-            seu personagem
+            <RouterLink to="/select-character?access=true" class="link3">clicando aqui</RouterLink>
+            e selecione seu personagem
           </p>
         </InfoComponent>
       </div>
