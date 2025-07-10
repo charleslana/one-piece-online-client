@@ -207,17 +207,13 @@ import MenuFixedComponent from '@/components/MenuFixedComponent.vue';
 import ModalCharacterImagesComponent from '@/components/ModalCharacterImagesComponent.vue';
 import UserHeaderComponent from '@/components/UserHeaderComponent.vue';
 import type { Character } from '@/interfaces/character';
+import type { Sea } from '@/interfaces/sea';
 import CharacterService from '@/services/character-service';
+import SeaService from '@/services/sea-service';
+import UserCharacterService from '@/services/user-character-service';
 import { getError } from '@/utils/api-utils';
 import { alertError, getAvatarUrl, getCharacterUrl, showError } from '@/utils/utils';
 import { computed, onMounted, ref } from 'vue';
-
-interface SeaOption {
-  key: string;
-  label: string;
-  population: number;
-  statistics: number;
-}
 
 interface Option {
   key: string;
@@ -225,7 +221,7 @@ interface Option {
 }
 
 onMounted(async () => {
-  await asyncGetAllCharacters();
+  await loadData();
   if (characters.value.length > 0) {
     selectedCharacter.value = characters.value[0];
   }
@@ -234,7 +230,7 @@ onMounted(async () => {
 const name = ref('One Piece Online');
 
 const characterName = ref('');
-const selectedSea = ref<SeaOption['key']>('east-blue');
+const selectedSea = ref<Sea['key']>('east-blue');
 const selectedFaction = ref<Option['key']>('pirate');
 const selectedBreed = ref<Option['key']>('human');
 const selectedCharacterClass = ref<Option['key']>('fighter');
@@ -243,12 +239,7 @@ const isLoading = ref(false);
 const success = ref(false);
 const isModal = ref(false);
 
-const seas: SeaOption[] = [
-  { key: 'east-blue', label: 'East Blue', population: 360786, statistics: 20 },
-  { key: 'north-blue', label: 'North Blue', population: 489521, statistics: 31 },
-  { key: 'west-blue', label: 'West Blue', population: 287300, statistics: 21 },
-  { key: 'south-blue', label: 'South Blue', population: 392144, statistics: 28 },
-];
+const seas = ref<Sea[]>([]);
 
 const factions: Option[] = [
   { key: 'pirate', label: 'Pirata' },
@@ -289,7 +280,7 @@ const paginatedCharacters = computed(() => {
 });
 
 const selectedSeaData = computed(() => {
-  return seas.find((s) => s.key === selectedSea.value);
+  return seas.value.find((s) => s.key === selectedSea.value);
 });
 
 const selectedSeaLabel = computed(() => selectedSeaData.value?.label || '');
@@ -304,32 +295,55 @@ function closeModal() {
   isModal.value = false;
 }
 
-function createCharacter() {
+async function createCharacter() {
   if (!characterName.value.trim()) {
     alertError('Ocorreu um erro.', 'Por favor, preencha o nome do personagem.');
     return;
   }
-
-  isLoading.value = true;
-
-  setTimeout(() => {
-    isLoading.value = false;
-    console.log(selectedSea.value);
-    console.log(selectedFaction.value);
-    success.value = true;
-    window.scrollTo({ top: 0 });
-  }, 2000);
+  await asyncCreateCharacter();
 }
 
 async function asyncGetAllCharacters(): Promise<void> {
-  isLoading.value = true;
   try {
     const allCharacters = await CharacterService.getAll();
     characters.value = allCharacters;
   } catch (e) {
     const error = getError(e);
+    showError(`Erro ao buscar personagens: ${error}`);
+  }
+}
+
+async function asyncGetAllSeas(): Promise<void> {
+  try {
+    const allSeas = await SeaService.getAll();
+    seas.value = allSeas;
+  } catch (e) {
+    const error = getError(e);
+    showError(`Erro ao buscar mares: ${error}`);
+  }
+}
+
+async function loadData(): Promise<void> {
+  isLoading.value = true;
+  await Promise.all([asyncGetAllCharacters(), asyncGetAllSeas()]);
+  isLoading.value = false;
+}
+
+async function asyncCreateCharacter(): Promise<void> {
+  isLoading.value = true;
+  try {
+    await UserCharacterService.createCharacter({
+      name: characterName.value,
+      sea: selectedSea.value,
+      faction: selectedFaction.value,
+      breed: selectedBreed.value,
+      characterClass: selectedCharacterClass.value,
+    });
+    success.value = true;
+    window.scrollTo({ top: 0 });
+  } catch (e) {
+    const error = getError(e);
     showError(error);
-  } finally {
     isLoading.value = false;
   }
 }

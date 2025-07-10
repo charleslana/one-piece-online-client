@@ -1,5 +1,5 @@
 export interface UserCharacter {
-  id: number;
+  id: string;
   character: string;
   avatar: string;
   name: string;
@@ -15,4 +15,12 @@ export interface UserCharacter {
 
 export interface UserCharacterResponse {
   userCharacters: UserCharacter[];
+}
+
+export interface CreateUserCharacter {
+  name: string;
+  sea: string;
+  faction: string;
+  breed: string;
+  characterClass: string;
 }
