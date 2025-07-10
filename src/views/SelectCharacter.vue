@@ -84,7 +84,7 @@
         <div class="buttons is-justify-content-center">
           <button
             class="button is-link is-medium"
-            @click="playCharacter"
+            @click="asyncSelectCharacter"
             :class="{ 'is-loading': isLoading }"
             :disabled="isLoading"
           >
@@ -181,7 +181,7 @@ interface Attribute {
 const router = useRouter();
 
 const selectedCharacter = ref<UserCharacter>({
-  id: 1,
+  id: '1',
   character: '1',
   avatar: '1.png',
   name: 'Nome_personagem',
@@ -222,23 +222,10 @@ function deleteCharacter() {
     title: 'Você tem certeza?',
     text: 'Você quer realmente deletar esse personagem?',
     confirmText: 'Sim, eu quero!',
-    onConfirm: () => {
-      isLoading.value = true;
-
-      setTimeout(() => {
-        console.log(`deletou o id ${selectedCharacter.value?.id}`);
-        isLoading.value = false;
-        showSuccess('Personagem deletado com sucesso.');
-      }, 2000);
+    onConfirm: async () => {
+      await asyncDeleteCharacter();
     },
   });
-}
-
-async function playCharacter() {
-  console.log(`jogando com o id ${selectedCharacter.value?.id}`);
-  isLoading.value = true;
-  await new Promise((resolve) => setTimeout(resolve, 0));
-  router.push('/character-status');
 }
 
 async function asyncGetAllUserCharacters(): Promise<void> {
@@ -250,6 +237,34 @@ async function asyncGetAllUserCharacters(): Promise<void> {
     const error = getError(e);
     showError(error);
   } finally {
+    isLoading.value = false;
+  }
+}
+
+async function asyncSelectCharacter(): Promise<void> {
+  isLoading.value = true;
+  try {
+    await UserCharacterService.selectCharacter(selectedCharacter.value?.id);
+    router.push('/character-status');
+  } catch (e) {
+    const error = getError(e);
+    showError(error);
+    isLoading.value = false;
+  }
+}
+
+async function asyncDeleteCharacter(): Promise<void> {
+  isLoading.value = true;
+  try {
+    const response = await UserCharacterService.deleteCharacter(selectedCharacter.value?.id);
+    showSuccess(response.message);
+    await asyncGetAllUserCharacters();
+    if (userCharacters.value.length === 0) {
+      router.push('/create-character?access=true');
+    }
+  } catch (e) {
+    const error = getError(e);
+    showError(error);
     isLoading.value = false;
   }
 }

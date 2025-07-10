@@ -1,4 +1,8 @@
 export default interface ResponseApi {
   message: string;
-  statusCode: number;
+  error: boolean;
+}
+
+export interface ResponseApiResponse {
+  response: ResponseApi;
 }

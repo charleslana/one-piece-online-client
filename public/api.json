@@ -342,5 +342,15 @@
       "stamina": "72",
       "characterProfile": "3.png"
     }
-  ]
+  ],
+  "sea": [
+    { "key": "east-blue", "label": "East Blue", "population": 360786, "statistics": 20 },
+    { "key": "north-blue", "label": "North Blue", "population": 489521, "statistics": 31 },
+    { "key": "west-blue", "label": "West Blue", "population": 287300, "statistics": 21 },
+    { "key": "south-blue", "label": "South Blue", "population": 392144, "statistics": 28 }
+  ],
+  "response": {
+    "message": "Sucesso",
+    "error": false
+  }
 }
